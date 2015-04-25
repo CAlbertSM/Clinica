@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3DD8C48C-3B02-45E2-A2C6-B2B29815A00C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ClinicaSanJose</RootNamespace>
+    <AssemblyName>ClinicaSanJose</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FrmHistorialExpediente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmHistorialExpediente.Designer.cs">
+      <DependentUpon>FrmHistorialExpediente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBusqueda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBusqueda.Designer.cs">
+      <DependentUpon>FrmBusqueda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Conexion.cs" />
+    <Compile Include="FrmConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConsulta.Designer.cs">
+      <DependentUpon>FrmConsulta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCrearExpediente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCrearExpediente.Designer.cs">
+      <DependentUpon>FrmCrearExpediente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Consulta.cs" />
+    <Compile Include="Empleado.cs" />
+    <Compile Include="Expediente.cs" />
+    <Compile Include="Prescripcion.cs" />
+    <Compile Include="FrmEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEmpleados.Designer.cs">
+      <DependentUpon>FrmEmpleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmExpediente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmExpediente.Designer.cs">
+      <DependentUpon>FrmExpediente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmHistorial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmHistorial.Designer.cs">
+      <DependentUpon>FrmHistorial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMenuConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMenuConsulta.Designer.cs">
+      <DependentUpon>FrmMenuConsulta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMenuExpediente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMenuExpediente.Designer.cs">
+      <DependentUpon>FrmMenuExpediente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmOpciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmOpciones.Designer.cs">
+      <DependentUpon>FrmOpciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPrescripcion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPrescripcion.Designer.cs">
+      <DependentUpon>FrmPrescripcion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TipoEmpleado.cs" />
+    <Compile Include="Usuario.cs" />
+    <Compile Include="FrmUsuarioCambiarContraseña.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUsuarioCambiarContraseña.Designer.cs">
+      <DependentUpon>FrmUsuarioCambiarContraseña.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FrmHistorialExpediente.resx">
+      <DependentUpon>FrmHistorialExpediente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBusqueda.resx">
+      <DependentUpon>FrmBusqueda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConsulta.resx">
+      <DependentUpon>FrmConsulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCrearExpediente.resx">
+      <DependentUpon>FrmCrearExpediente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEmpleados.resx">
+      <DependentUpon>FrmEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmExpediente.resx">
+      <DependentUpon>FrmExpediente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmHistorial.resx">
+      <DependentUpon>FrmHistorial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMenuConsulta.resx">
+      <DependentUpon>FrmMenuConsulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMenuExpediente.resx">
+      <DependentUpon>FrmMenuExpediente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmOpciones.resx">
+      <DependentUpon>FrmOpciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPrescripcion.resx">
+      <DependentUpon>FrmPrescripcion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="FrmUsuarioCambiarContraseña.resx">
+      <DependentUpon>FrmUsuarioCambiarContraseña.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ImagenesClinicaSanJose\images %281%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ImagenesClinicaSanJose\azul1.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ImagenesClinicaSanJose\resumen-de-las-ondas-de-color-azul-de-fondo-vector_53-8374.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ImagenesClinicaSanJose\azul_esfumado.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ImagenesClinicaSanJose\images %282%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ImagenesClinicaSanJose\color-blue-abstract-color-abstract-line.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ImagenesClinicaSanJose\images.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ImagenesClinicaSanJose\doctor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ImagenesClinicaSanJose\descarga.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ImagenesClinicaSanJose\expedientes.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ImagenesClinicaSanJose\fila.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ImagenesClinicaSanJose\dedo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ImagenesClinicaSanJose\dna-helix-powerpoint-template.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ImagenesClinicaSanJose\logo1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ImagenesClinicaSanJose\Candado.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ImagenesClinicaSanJose\logotipo.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ImagenesClinicaSanJose\letras.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ImagenesClinicaSanJose\images %283%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ImagenesClinicaSanJose\servicios.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ImagenesClinicaSanJose\ser_ban_11_30383.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ImagenesClinicaSanJose\servMedicos.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ImagenesClinicaSanJose\339454__green-capsule-of-ultimate-dna_p.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ImagenesClinicaSanJose\Seguro médico_0.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ImagenesClinicaSanJose\can-stock-photo_csp10765621.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ImagenesClinicaSanJose\1084_example.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo_clinica_sanjose-01-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fondo 1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FondoFormularios.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fondo2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FondoFormularios2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\445x230.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

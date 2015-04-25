@@ -1,0 +1,237 @@
+F:\Users\carbajal mejia\AppData\Local\Temporary Projects\ClinicaSanJose\bin\Debug\ClinicaSanJose.exe
+F:\Users\carbajal mejia\AppData\Local\Temporary Projects\ClinicaSanJose\bin\Debug\ClinicaSanJose.pdb
+F:\Users\carbajal mejia\AppData\Local\Temporary Projects\ClinicaSanJose\obj\x86\Debug\ResolveAssemblyReference.cache
+F:\Users\carbajal mejia\AppData\Local\Temporary Projects\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Busqueda.resources
+F:\Users\carbajal mejia\AppData\Local\Temporary Projects\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Consulta.resources
+F:\Users\carbajal mejia\AppData\Local\Temporary Projects\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Expediente.resources
+F:\Users\carbajal mejia\AppData\Local\Temporary Projects\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Form1.resources
+F:\Users\carbajal mejia\AppData\Local\Temporary Projects\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Historial.resources
+F:\Users\carbajal mejia\AppData\Local\Temporary Projects\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Opciones.resources
+F:\Users\carbajal mejia\AppData\Local\Temporary Projects\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Properties.Resources.resources
+F:\Users\carbajal mejia\AppData\Local\Temporary Projects\ClinicaSanJose\obj\x86\Debug\GenerateResource.read.1.tlog
+F:\Users\carbajal mejia\AppData\Local\Temporary Projects\ClinicaSanJose\obj\x86\Debug\GenerateResource.write.1.tlog
+F:\Users\carbajal mejia\AppData\Local\Temporary Projects\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.exe
+F:\Users\carbajal mejia\AppData\Local\Temporary Projects\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.pdb
+E:\Clinica San Jose\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.exe
+E:\Clinica San Jose\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.pdb
+E:\Clinica San Jose\ClinicaSanJose\ClinicaSanJose\bin\Debug\ClinicaSanJose.exe
+E:\Clinica San Jose\ClinicaSanJose\ClinicaSanJose\bin\Debug\ClinicaSanJose.pdb
+E:\Clinica San Jose\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\Clinica San Jose\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Busqueda.resources
+E:\Clinica San Jose\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Consulta.resources
+E:\Clinica San Jose\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Expediente.resources
+E:\Clinica San Jose\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Form1.resources
+E:\Clinica San Jose\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Historial.resources
+E:\Clinica San Jose\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Opciones.resources
+E:\Clinica San Jose\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Properties.Resources.resources
+E:\Clinica San Jose\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\GenerateResource.read.1.tlog
+E:\Clinica San Jose\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\GenerateResource.write.1.tlog
+E:\Clinica San Jose\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Empleados.resources
+E:\Clinica San Jose\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Cita.resources
+E:\Clinica San Jose\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.CitaPendientes.resources
+E:\Clinica San Jose\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Intermedio.resources
+F:\Users\carbajal mejia\Desktop\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.exe
+F:\Users\carbajal mejia\Desktop\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.pdb
+F:\Users\carbajal mejia\Desktop\ClinicaSanJose\ClinicaSanJose\bin\Debug\ClinicaSanJose.exe
+F:\Users\carbajal mejia\Desktop\ClinicaSanJose\ClinicaSanJose\bin\Debug\ClinicaSanJose.pdb
+F:\Users\carbajal mejia\Desktop\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ResolveAssemblyReference.cache
+F:\Users\carbajal mejia\Desktop\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Busqueda.resources
+F:\Users\carbajal mejia\Desktop\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Cita.resources
+F:\Users\carbajal mejia\Desktop\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.CitaPendientes.resources
+F:\Users\carbajal mejia\Desktop\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Consulta.resources
+F:\Users\carbajal mejia\Desktop\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Empleados.resources
+F:\Users\carbajal mejia\Desktop\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Expediente.resources
+F:\Users\carbajal mejia\Desktop\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Form1.resources
+F:\Users\carbajal mejia\Desktop\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Historial.resources
+F:\Users\carbajal mejia\Desktop\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Intermedio.resources
+F:\Users\carbajal mejia\Desktop\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Opciones.resources
+F:\Users\carbajal mejia\Desktop\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Properties.Resources.resources
+F:\Users\carbajal mejia\Desktop\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\GenerateResource.read.1.tlog
+F:\Users\carbajal mejia\Desktop\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\usuario2\Desktop\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.exe
+C:\Users\usuario2\Desktop\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.pdb
+C:\Users\usuario2\Desktop\ClinicaSanJose\ClinicaSanJose\bin\Debug\ClinicaSanJose.exe
+C:\Users\usuario2\Desktop\ClinicaSanJose\ClinicaSanJose\bin\Debug\ClinicaSanJose.pdb
+C:\Users\usuario2\Desktop\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.csprojResolveAssemblyReference.cache
+C:\Users\usuario2\Desktop\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Busqueda.resources
+C:\Users\usuario2\Desktop\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Consulta.resources
+C:\Users\usuario2\Desktop\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Empleados.resources
+C:\Users\usuario2\Desktop\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Expediente.resources
+C:\Users\usuario2\Desktop\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Form1.resources
+C:\Users\usuario2\Desktop\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Historial.resources
+C:\Users\usuario2\Desktop\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Opciones.resources
+C:\Users\usuario2\Desktop\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Properties.Resources.resources
+C:\Users\usuario2\Desktop\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.csproj.GenerateResource.Cache
+C:\Users\usuario2\Desktop\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.MenuConsulta.resources
+I:\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.exe
+I:\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.pdb
+I:\ClinicaSanJose\ClinicaSanJose\bin\Debug\ClinicaSanJose.exe
+I:\ClinicaSanJose\ClinicaSanJose\bin\Debug\ClinicaSanJose.pdb
+I:\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.csprojResolveAssemblyReference.cache
+I:\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Busqueda.resources
+I:\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Consulta.resources
+I:\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Empleados.resources
+I:\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Expediente.resources
+I:\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Form1.resources
+I:\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Historial.resources
+I:\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.MenuConsulta.resources
+I:\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Opciones.resources
+I:\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Properties.Resources.resources
+I:\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.csproj.GenerateResource.Cache
+I:\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.MenuExpediente.resources
+C:\Users\TiTa\Desktop\analisis\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.exe
+C:\Users\TiTa\Desktop\analisis\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.pdb
+C:\Users\TiTa\Desktop\analisis\ClinicaSanJose\ClinicaSanJose\bin\Debug\ClinicaSanJose.exe
+C:\Users\TiTa\Desktop\analisis\ClinicaSanJose\ClinicaSanJose\bin\Debug\ClinicaSanJose.pdb
+C:\Users\TiTa\Desktop\analisis\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.csprojResolveAssemblyReference.cache
+C:\Users\TiTa\Desktop\analisis\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Busqueda.resources
+C:\Users\TiTa\Desktop\analisis\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Consulta.resources
+C:\Users\TiTa\Desktop\analisis\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Empleados.resources
+C:\Users\TiTa\Desktop\analisis\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Expediente.resources
+C:\Users\TiTa\Desktop\analisis\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Form1.resources
+C:\Users\TiTa\Desktop\analisis\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Historial.resources
+C:\Users\TiTa\Desktop\analisis\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.MenuConsulta.resources
+C:\Users\TiTa\Desktop\analisis\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.MenuExpediente.resources
+C:\Users\TiTa\Desktop\analisis\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Opciones.resources
+C:\Users\TiTa\Desktop\analisis\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Properties.Resources.resources
+C:\Users\TiTa\Desktop\analisis\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.csproj.GenerateResource.Cache
+E:\ClinicaSanJose\ClinicaSanJose\bin\Debug\ClinicaSanJose.exe
+E:\ClinicaSanJose\ClinicaSanJose\bin\Debug\ClinicaSanJose.pdb
+E:\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.csprojResolveAssemblyReference.cache
+E:\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Busqueda.resources
+E:\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Consulta.resources
+E:\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Empleados.resources
+E:\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Expediente.resources
+E:\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Form1.resources
+E:\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Historial.resources
+E:\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.MenuConsulta.resources
+E:\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.MenuExpediente.resources
+E:\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Opciones.resources
+E:\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Properties.Resources.resources
+E:\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.csproj.GenerateResource.Cache
+E:\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.exe
+E:\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.pdb
+E:\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.CrearExpediente.resources
+E:\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Prescripcion.resources
+C:\Users\dell\Documents\Visual Studio 2012\Projects\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.exe
+C:\Users\dell\Documents\Visual Studio 2012\Projects\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.pdb
+F:\Programas\Análisis y Diseño\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.exe
+F:\Programas\Análisis y Diseño\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.pdb
+F:\Programas\Análisis y Diseño\ClinicaSanJose\ClinicaSanJose\bin\Debug\ClinicaSanJose.exe
+F:\Programas\Análisis y Diseño\ClinicaSanJose\ClinicaSanJose\bin\Debug\ClinicaSanJose.pdb
+F:\Programas\Análisis y Diseño\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.csprojResolveAssemblyReference.cache
+F:\Programas\Análisis y Diseño\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Properties.Resources.resources
+F:\Programas\Análisis y Diseño\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.csproj.GenerateResource.Cache
+C:\Users\Aby\Dropbox\Analisis y diseño proyecto\Clinica\Proyecto a Programar\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.exe
+C:\Users\Aby\Dropbox\Analisis y diseño proyecto\Clinica\Proyecto a Programar\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.pdb
+C:\Users\Aby\Dropbox\Analisis y diseño proyecto\Clinica\Proyecto a Programar\ClinicaSanJose\ClinicaSanJose\bin\Debug\ClinicaSanJose.exe
+C:\Users\Aby\Dropbox\Analisis y diseño proyecto\Clinica\Proyecto a Programar\ClinicaSanJose\ClinicaSanJose\bin\Debug\ClinicaSanJose.pdb
+C:\Users\Aby\Dropbox\Analisis y diseño proyecto\Clinica\Proyecto a Programar\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.csprojResolveAssemblyReference.cache
+C:\Users\Aby\Dropbox\Analisis y diseño proyecto\Clinica\Proyecto a Programar\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Properties.Resources.resources
+C:\Users\Aby\Dropbox\Analisis y diseño proyecto\Clinica\Proyecto a Programar\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.csproj.GenerateResource.Cache
+C:\Users\Aby\Dropbox\Analisis y diseño proyecto\Clinica\Proyecto a Programar\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmBusqueda.resources
+C:\Users\Aby\Dropbox\Analisis y diseño proyecto\Clinica\Proyecto a Programar\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmConsulta.resources
+C:\Users\Aby\Dropbox\Analisis y diseño proyecto\Clinica\Proyecto a Programar\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmCrearExpediente.resources
+C:\Users\Aby\Dropbox\Analisis y diseño proyecto\Clinica\Proyecto a Programar\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmEmpleados.resources
+C:\Users\Aby\Dropbox\Analisis y diseño proyecto\Clinica\Proyecto a Programar\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmExpediente.resources
+C:\Users\Aby\Dropbox\Analisis y diseño proyecto\Clinica\Proyecto a Programar\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmLogin.resources
+C:\Users\Aby\Dropbox\Analisis y diseño proyecto\Clinica\Proyecto a Programar\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmHistorial.resources
+C:\Users\Aby\Dropbox\Analisis y diseño proyecto\Clinica\Proyecto a Programar\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmMenuConsulta.resources
+C:\Users\Aby\Dropbox\Analisis y diseño proyecto\Clinica\Proyecto a Programar\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmMenuExpediente.resources
+C:\Users\Aby\Dropbox\Analisis y diseño proyecto\Clinica\Proyecto a Programar\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmOpciones.resources
+C:\Users\Aby\Dropbox\Analisis y diseño proyecto\Clinica\Proyecto a Programar\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmPrescripcion.resources
+C:\Users\Aby\Dropbox\Analisis y diseño proyecto\Clinica\Proyecto a Programar\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmUsuarioCambiarContraseña.resources
+C:\Users\Juan\Dropbox\Analisis y diseño proyecto\Clinica\Proyecto a Programar (En el que estoy actualmente trabajando)\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.exe
+C:\Users\Juan\Dropbox\Analisis y diseño proyecto\Clinica\Proyecto a Programar (En el que estoy actualmente trabajando)\ClinicaSanJose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.pdb
+C:\Users\TiTa\Downloads\Proyecto a Programar (En el que estoy actualmente trabajando)\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.exe
+C:\Users\TiTa\Downloads\Proyecto a Programar (En el que estoy actualmente trabajando)\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.pdb
+D:\Analisis\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.exe
+D:\Analisis\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.pdb
+D:\Analisis\clinicasanjose\ClinicaSanJose\bin\Debug\ClinicaSanJose.exe
+D:\Analisis\clinicasanjose\ClinicaSanJose\bin\Debug\ClinicaSanJose.pdb
+D:\Analisis\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.csprojResolveAssemblyReference.cache
+D:\Analisis\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmBusqueda.resources
+D:\Analisis\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmConsulta.resources
+D:\Analisis\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmCrearExpediente.resources
+D:\Analisis\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmEmpleados.resources
+D:\Analisis\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmExpediente.resources
+D:\Analisis\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmLogin.resources
+D:\Analisis\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmHistorial.resources
+D:\Analisis\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmMenuConsulta.resources
+D:\Analisis\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmMenuExpediente.resources
+D:\Analisis\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmOpciones.resources
+D:\Analisis\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmPrescripcion.resources
+D:\Analisis\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Properties.Resources.resources
+D:\Analisis\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmUsuarioCambiarContraseña.resources
+D:\Analisis\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.csproj.GenerateResource.Cache
+J:\Analisis\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.exe
+J:\Analisis\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.pdb
+J:\Analisis\clinicasanjose\ClinicaSanJose\bin\Debug\ClinicaSanJose.exe
+J:\Analisis\clinicasanjose\ClinicaSanJose\bin\Debug\ClinicaSanJose.pdb
+J:\Analisis\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.csprojResolveAssemblyReference.cache
+J:\Analisis\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmBusqueda.resources
+J:\Analisis\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmConsulta.resources
+J:\Analisis\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmCrearExpediente.resources
+J:\Analisis\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmEmpleados.resources
+J:\Analisis\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmExpediente.resources
+J:\Analisis\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmLogin.resources
+J:\Analisis\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmHistorial.resources
+J:\Analisis\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmMenuConsulta.resources
+J:\Analisis\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmMenuExpediente.resources
+J:\Analisis\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmOpciones.resources
+J:\Analisis\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmPrescripcion.resources
+J:\Analisis\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Properties.Resources.resources
+J:\Analisis\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmUsuarioCambiarContraseña.resources
+J:\Analisis\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.csproj.GenerateResource.Cache
+F:\Programas\Análisis y Diseño\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmBusqueda.resources
+F:\Programas\Análisis y Diseño\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmConsulta.resources
+F:\Programas\Análisis y Diseño\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmCrearExpediente.resources
+F:\Programas\Análisis y Diseño\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmEmpleados.resources
+F:\Programas\Análisis y Diseño\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmExpediente.resources
+F:\Programas\Análisis y Diseño\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmLogin.resources
+F:\Programas\Análisis y Diseño\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmHistorial.resources
+F:\Programas\Análisis y Diseño\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmMenuConsulta.resources
+F:\Programas\Análisis y Diseño\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmMenuExpediente.resources
+F:\Programas\Análisis y Diseño\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmOpciones.resources
+F:\Programas\Análisis y Diseño\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmPrescripcion.resources
+F:\Programas\Análisis y Diseño\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmUsuarioCambiarContraseña.resources
+F:\Programas\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.exe
+F:\Programas\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.pdb
+F:\Programas\clinicasanjose\ClinicaSanJose\bin\Debug\ClinicaSanJose.exe
+F:\Programas\clinicasanjose\ClinicaSanJose\bin\Debug\ClinicaSanJose.pdb
+F:\Programas\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.csprojResolveAssemblyReference.cache
+F:\Programas\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmBusqueda.resources
+F:\Programas\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmConsulta.resources
+F:\Programas\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmCrearExpediente.resources
+F:\Programas\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmEmpleados.resources
+F:\Programas\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmExpediente.resources
+F:\Programas\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmLogin.resources
+F:\Programas\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmHistorial.resources
+F:\Programas\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmMenuConsulta.resources
+F:\Programas\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmMenuExpediente.resources
+F:\Programas\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmOpciones.resources
+F:\Programas\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmPrescripcion.resources
+F:\Programas\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Properties.Resources.resources
+F:\Programas\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmUsuarioCambiarContraseña.resources
+F:\Programas\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.csproj.GenerateResource.Cache
+F:\Programas\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmHistorialExpediente.resources
+F:\Programs\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.exe
+F:\Programs\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.pdb
+F:\Programs\clinicasanjose\ClinicaSanJose\bin\Debug\ClinicaSanJose.exe
+F:\Programs\clinicasanjose\ClinicaSanJose\bin\Debug\ClinicaSanJose.pdb
+F:\Programs\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.csprojResolveAssemblyReference.cache
+F:\Programs\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmHistorialExpediente.resources
+F:\Programs\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmBusqueda.resources
+F:\Programs\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmConsulta.resources
+F:\Programs\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmCrearExpediente.resources
+F:\Programs\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmEmpleados.resources
+F:\Programs\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmExpediente.resources
+F:\Programs\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmLogin.resources
+F:\Programs\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmHistorial.resources
+F:\Programs\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmMenuConsulta.resources
+F:\Programs\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmMenuExpediente.resources
+F:\Programs\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmOpciones.resources
+F:\Programs\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmPrescripcion.resources
+F:\Programs\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.Properties.Resources.resources
+F:\Programs\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.FrmUsuarioCambiarContraseña.resources
+F:\Programs\clinicasanjose\ClinicaSanJose\obj\x86\Debug\ClinicaSanJose.csproj.GenerateResource.Cache

@@ -1,0 +1,872 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="es" lang="es" dir="ltr">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=u(e),f=c.length,s=i(a,o,r),p=0;f>p;p++)c[p].apply(s,n);return s}function a(t,e){f[t]=u(t).concat(e)}function u(t){return f[t]||[]}function c(){return n(e)}var f={};return{on:a,emit:e,create:c,listeners:u,_events:f}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],G9z0Bl:[function(t,e){function n(){var t=l.info=NREUM.info;if(t&&t.agent&&t.licenseKey&&t.applicationID&&c&&c.body){l.proto="https"===p.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=c.createElement("script");e.src=l.proto+t.agent,c.body.appendChild(e)}}function r(){"complete"===c.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),u=window,c=u.document,f="addEventListener",s="attachEvent",p=(""+location).split("?")[0],l=e.exports={offset:i(),origin:p,features:{}};c[f]?(c[f]("DOMContentLoaded",o,!1),u[f]("load",n,!1)):(c[s]("onreadystatechange",r),u[s]("onload",n)),a("mark",["firstbyte",i()])},{handle:"D5DuLP"}]},{},["G9z0Bl"]);</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="PSP, PSP Slim, Play Station Portable, Scene, Homebrew, Foro PSP Slim, Tutoriales Avanzados Homebrew" />
+<meta name="copyright" content="Copyright PSP.SceneBeta.com" />
+<link rel="prev" href="/tutorial/programacion-en-lua-pge" />
+<link rel="up" href="/tutorial/programacion-en-lua-pge" />
+<link rel="next" href="/tutorial/cambiar-la-barra-titlebar-en-vlf-pge" />
+<link rel="shortcut icon" href="http://psp.scenebeta.com/imgpub/sb_open/favicons/psp.ico" type="image/x-icon" />
+    <title>Cambiar el color de fondo del VLF Lua PGE | PSP.SceneBeta.com</title>
+    <link type="text/css" rel="stylesheet" media="all" href="/archivos/psp/advagg_css/css_c0cd37667fc121f0bd34cc922be35b7a_6.css" />
+<link type="text/css" rel="stylesheet" media="all" href="/archivos/psp/advagg_css/css_3d8919fb2abe4e03a678bea1041aa861_0.css" />
+<link type="text/css" rel="stylesheet" media="all" href="/archivos/psp/advagg_css/css_a7e5b446dbcaa12cca0121e5e6b71adf_0.css" />
+<link type="text/css" rel="stylesheet" media="print" href="/archivos/psp/advagg_css/css_fc45c6d7715a6dc8b432dc7fbb540804_4.css" />
+    <script type="text/javascript" src="/archivos/psp/advagg_js/js_d135c2935f2915673988d3e6f095d7b8_3.js"></script>
+<script type="text/javascript" src="/archivos/psp/advagg_js/js_d5f8c421364bf9d77a3c1ee9d5f76704_3.js"></script>
+<script type="text/javascript" src="/archivos/psp/advagg_js/js_3275d191f0d8a903affa39483c93e3dd_3.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","fivestar":{"titleUser":"Tu voto: ","titleAverage":"Votos totales: ","feedbackSavingVote":"Guardando tu voto...","feedbackVoteSaved":"Tu voto ha sido almacenado.","feedbackDeletingVote":"Eliminando tu voto...","feedbackVoteDeleted":"Tu voto ha sido eliminado."},"googleanalytics":{"trackOutgoing":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip"},"lightbox2":{"rtl":"0","file_path":"\/(\\w\\w\/)archivos\/psp","default_image":"\/sites\/all\/modules\/lightbox2\/images\/brokenimage.jpg","border_size":10,"font_color":"000","box_color":"fff","top_position":"","overlay_opacity":"0.8","overlay_color":"000","disable_close_click":true,"resize_sequence":0,"resize_speed":400,"fade_in_speed":400,"slide_down_speed":600,"use_alt_layout":false,"disable_resize":false,"disable_zoom":false,"force_show_nav":false,"show_caption":true,"loop_items":false,"node_link_text":"View Image Details","node_link_target":false,"image_count":"Image !current of !total","video_count":"Video !current of !total","page_count":"Page !current of !total","lite_press_x_close":"press \u003Ca href=\u0022#\u0022 onclick=\u0022hideLightbox(); return FALSE;\u0022\u003E\u003Ckbd\u003Ex\u003C\/kbd\u003E\u003C\/a\u003E to close","download_link_text":"","enable_login":false,"enable_contact":false,"keys_close":"c x 27","keys_previous":"p 37","keys_next":"n 39","keys_zoom":"z","keys_play_pause":"32","display_image_size":"original","image_node_sizes":"()","trigger_lightbox_classes":"","trigger_lightbox_group_classes":"","trigger_slideshow_classes":"","trigger_lightframe_classes":"","trigger_lightframe_group_classes":"","custom_class_handler":0,"custom_trigger_classes":"","disable_for_gallery_lists":true,"disable_for_acidfree_gallery_lists":true,"enable_acidfree_videos":true,"slideshow_interval":5000,"slideshow_automatic_start":true,"slideshow_automatic_exit":true,"show_play_pause":true,"pause_on_next_click":false,"pause_on_previous_click":true,"loop_slides":false,"iframe_width":600,"iframe_height":400,"iframe_border":1,"enable_video":false},"spamspan":{"m":"spamspan","u":"u","d":"d","h":"h","t":"t"},"extlink":{"extTarget":"_blank","extClass":"ext","extSubdomains":1,"extExclude":"","extInclude":"","extAlert":0,"extAlertText":"This link will take you to an external web site. We are not responsible for their content.","mailtoClass":"mailto"}});
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+window.google_analytics_uacct="UA-312269-1"
+//--><!]]>
+</script>
+    <!--[if lt IE 7]>
+      <link type="text/css" rel="stylesheet" media="all" href="/sites/all/themes/nitegarland2/fix-ie.css" />    <![endif]-->
+    <meta property="fb:admins" content="543383598,1391686919"/>
+    <meta property="fb:page_id" content="95017028378"/>
+    <!--NITE social-->
+    <meta property="og:image" content="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-snc4/41568_95017028378_2171_n.jpg"/>    <!--end NITE social-->
+  </head>
+  <body class="sidebars">
+
+<!-- Layout -->
+  <div id="header-region" class="clear-block"></div>
+
+    <div id="wrapper">
+    <div id="container" class="clear-block">
+
+      <div id="header">
+        <div id="logo-floater">
+        <h1><a href="/" title=""><img src="http://psp.scenebeta.com/imgpub/sb_open/logos/201010psp.png" alt="" id="logo" /></a></h1>        </div>
+
+                  <ul class="links primary-links"><li class="menu-129 first"><a href="/psp/aplicaciones">Aplicaciones</a></li>
+<li class="menu-131"><a href="/psp/emuladores">Emuladores</a></li>
+<li class="menu-133"><a href="/psp/juegos">Juegos</a></li>
+<li class="menu-135"><a href="/psp/launchers">Launchers</a></li>
+<li class="menu-331"><a href="/psp/plug-ins" title="Plugins para Custom Firmwares">Plug-ins</a></li>
+<li class="menu-137"><a href="/tutoriales/psp">Tutoriales</a></li>
+<li class="menu-289"><a href="/psp/downgraders">Downgraders</a></li>
+<li class="menu-293"><a href="/psp/modding">Modding</a></li>
+<li class="menu-291 last"><a href="/psp/packs">Packs</a></li>
+</ul>                          <ul class="links secondary-links"><li class="0 first"><a href="http://www.scenebeta.com" title="www.SceneBeta.com"><img src="/imgpub/bot/pc.gif" width="44" height="20" alt="www.SceneBeta.com"/></a></li>
+<li class="1"><a href="http://nds.scenebeta.com" title="NDS.SceneBeta.com"><img src="/imgpub/bot/nds.gif" width="44" height="20" alt="NDS.SceneBeta.com"/></a></li>
+<li class="2"><a href="http://wii.scenebeta.com" title="Wii.SceneBeta.com"><img src="/imgpub/bot/wii.gif" width="44" height="20" alt="Wii.SceneBeta.com"/></a></li>
+<li class="3"><a href="http://iapps.scenebeta.com" title="iApps.SceneBeta.com"><img src="/imgpub/bot/iapps.gif" width="44" height="20" alt="iApps.SceneBeta.com"/></a></li>
+<li class="4"><a href="http://android.scenebeta.com" title="Android.SceneBeta.com"><img src="/imgpub/bot/android.gif" width="44" height="20" alt="Android.SceneBeta.com"/></a></li>
+<li class="5 last"><a href="http://ps3.scenebeta.com" title="PS3.SceneBeta.com"><img src="/imgpub/bot/ps3.gif" width="44" height="20" alt="PS3.SceneBeta.com"/></a></li>
+</ul>        
+      </div> <!-- /header -->
+
+              <div id="sidebar-left" class="sidebar">
+          <div class="block block-theme"><form action="/tutorial/cambiar-el-color-de-fondo-del-vlf-lua-pge"  accept-charset="UTF-8" method="post" id="search-theme-form">
+<div><div id="search" class="container-inline">
+  <div class="form-item" id="edit-search-theme-form-1-wrapper">
+ <label for="edit-search-theme-form-1">Buscar contenido: </label>
+ <input type="text" maxlength="128" name="search_theme_form" id="edit-search-theme-form-1" size="15" value="" title="Introduzca los términos que quiera buscar." class="form-text" />
+</div>
+<input type="submit" name="op" id="edit-submit-3" value="Buscar"  class="form-submit" />
+<input type="hidden" name="form_build_id" id="form-229a73f2ae99fa511a74ed04fac42325" value="form-229a73f2ae99fa511a74ed04fac42325"  />
+<input type="hidden" name="form_id" id="edit-search-theme-form" value="search_theme_form"  />
+</div>
+
+</div></form>
+</div>          <div id="block-block-29" class="clear-block block block-block">
+
+  <h2>Al día en 10 min</h2>
+
+  <div class="content"><p><a href="/tutorial/ponte-al-dia-en-10-minutos-la-scene-psp"><img src="/imgpub/10min/10min_psp.gif" /></a></p>
+</div>
+</div>
+<div id="block-user-0" class="clear-block block block-user">
+
+  <h2>Inicio de sesión de usuario</h2>
+
+  <div class="content"><form action="/tutorial/cambiar-el-color-de-fondo-del-vlf-lua-pge?destination=node%2F33979"  accept-charset="UTF-8" method="post" id="user-login-form">
+<div><div class="form-item" id="edit-name-wrapper">
+ <label for="edit-name">Nombre de usuario: <span class="form-required" title="Este campo es obligatorio.">*</span></label>
+ <input type="text" maxlength="60" name="name" id="edit-name" size="15" value="" class="form-text required" />
+</div>
+<div class="form-item" id="edit-pass-wrapper">
+ <label for="edit-pass">Contraseña: <span class="form-required" title="Este campo es obligatorio.">*</span></label>
+ <input type="password" name="pass" id="edit-pass"  maxlength="60"  size="15"  class="form-text required" />
+</div>
+<div class="item-list"><ul><li class="first"><a href="/user/register" title="Crea una cuenta de usuario nueva.">Crear cuenta nueva</a></li>
+<li class="last"><a href="/user/password" title="Solicita una contraseña nueva por correo electrónico.">Solicitar nueva contraseña</a></li>
+</ul></div><input type="hidden" name="form_build_id" id="form-44d1a28599878c7cfd06685e14efb788" value="form-44d1a28599878c7cfd06685e14efb788"  />
+<input type="hidden" name="form_id" id="edit-user-login-block" value="user_login_block"  />
+<div class="edit-mail-add-wrapper"><div class="form-item" id="edit-mail-add-wrapper">
+ <input type="text" maxlength="128" name="mail_add" id="edit-mail-add" size="20" value="" class="form-text" />
+ <div class="description">To prevent automated spam submissions leave this field empty.</div>
+</div>
+</div><input type="submit" name="op" id="edit-submit-2" value="Iniciar sesión"  class="form-submit" />
+
+</div></form>
+</div>
+</div>
+<div id="block-user-1" class="clear-block block block-user">
+
+  <h2>Navegación</h2>
+
+  <div class="content"><ul class="menu"><li class="collapsed first"><a href="/blog">Entradas de Bitácora</a></li>
+<li class="leaf"><a href="http://www.scenebeta.com/tutorial/normas-del-grupo-scenebeta-com" title="Normas del Grupo SceneBeta.com">Normas de la comunidad</a></li>
+<li class="leaf"><a href="/faq">Preguntas frecuentes (FAQ)</a></li>
+<li class="leaf"><a href="/tracker" title="Últimos envíos">Envíos recientes</a></li>
+<li class="leaf"><a href="/forum">Foros</a></li>
+<li class="leaf"><a href="/hof" title="Resumen de estadí­sticas">Hall of fame</a></li>
+<li class="collapsed last"><a href="/members/staff" title="Listado de Staff">Staff</a></li>
+</ul></div>
+</div>
+<div id="block-block-3" class="clear-block block block-block">
+
+  <h2>Anuncios Google</h2>
+
+  <div class="content"><div class='adsense ' style='display:inline-block;width:120px;height:600px;'>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-3254352600964522";
+/* 120x600 */
+google_ad_slot = "7013836956";
+google_ad_width = 120;
+google_ad_height = 600;
+//--><!--
+google_ad_client = "ca-pub-3254352600964522";
+/* 120x600 */
+google_ad_slot = "7013836956";
+google_ad_width = 120;
+google_ad_height = 600;
+//-->
+</script><script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+</div>
+</div>
+<div id="block-faq-2" class="clear-block block block-faq">
+
+  <h2>Te habías preguntado...</h2>
+
+  <div class="content"><div class="item-list"><ul><li class="first"><a href="/faq/qu-son-todas-esas-palabras-raras-no-entiendo-nada">¿Qué son todas esas palabras raras? No entiendo nada...</a></li>
+<li><a href="/faq/que-distintos-formatos-hay-para-mis-back-ups">¿Qué distintos formatos hay para mis Back Ups?</a></li>
+<li class="last"><a href="/faq/puedo-reducir-el-tamano-de-mi-back">¿Puedo reducir el tamaño de mi Back Up?</a></li>
+</ul></div><div class="faq-all-faqs-link"><a href="/faq">Todas las FAQ</a></div></div>
+</div>
+        </div>
+      
+      <div id="center"><div id="squeeze"><div class="right-corner"><div class="left-corner">
+          <div class="breadcrumb"><a href="/">Principal</a> › <a href="/tutorial/tutoriales-programacion-psp-y-avanzados-de-homebrew">Tutoriales programacion PSP y avanzados de Homebrew</a> › <a href="/tutorial/tutoriales-para-programar-en-lua-para-psp">Tutoriales para Programar en LUA para PSP</a> › <a href="/tutorial/programacion-en-lua-pge">Programacion en LUA PGE</a></div>          <!--BY NITE-->
+          <div id="block-block-14" class="clear-block block block-block">
+
+
+  <div class="content"><div align="center">
+<h3>Anuncios Google</h3>
+<div class='adsense ' style='display:inline-block;width:468px;height:60px;'>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-3254352600964522";
+/* 468x60 */
+google_ad_slot = "9719194954";
+google_ad_width = 468;
+google_ad_height = 60;
+//--><!--
+google_ad_client = "ca-pub-3254352600964522";
+/* 468x60 */
+google_ad_slot = "9719194954";
+google_ad_width = 468;
+google_ad_height = 60;
+//-->
+</script><script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+</div>
+</div>
+</div>
+          <!--END BY NITE-->
+                              <h2>Cambiar el color de fondo del VLF Lua PGE</h2>                                                  
+          <div class="clear-block">
+            <div id="node-33979" class="node">
+
+
+
+  <div class="taxonomy-image"><img src="http://psp.scenebeta.com/archivos/psp/category_pictures/tuto_11.gif" alt="Tutoriales Avanzados Homebrew" title="Tutoriales Avanzados Homebrew"  width="30" height="15" alt="Tutoriales" ="omebrew" /><img src="http://psp.scenebeta.com/archivos/psp/category_pictures/mex.gif" alt="mex" title="Mexicano"  width="24" height="15" alt="mex" /></div>      <span class="submitted">Sáb, 2009-05-23 21:54 — <a href="/user/311639" title="Ver el perfil de usuario.">Migueliziosop</a><div class="user_badges"><img src="/archivos/www/badges/Coder.gif" alt="Coder" title="Coder"  class="badge coder" /><img src="/archivos/www/badges/OldOne.gif" alt="Old One" title="Old One"  class="badge old-one" /></div></span> 
+    
+  <div class="content clear-block">
+    <!-- NITEMAN --><!-- I C -->
+    <!-- google_ad_section_start --><p>Bienvenidos a otro tutorial sobre <strong>VLF para Lua PGE</strong>. Te record&aacute;mos que <strong>VLF son aquellas olas del XMB de fondo</strong>. La utilizan en el Despertar del Cementerio y m&aacute;s. Hoy <strong>aprenderemos como cambiarle el color a las olas VLF de nuestro programa en Lua PGE. S&oacute;n m&aacute;s de 30 col&oacute;res</strong>. En realidad <strong>este tutorial</strong> acerca de como cambi&aacute;r el color <strong>es uno de los m&aacute;s f&aacute;ciles</strong>. En pocas palabras, <strong>en 5 minutos le podr&aacute;s cambiar el color al fondo</strong>!.</p>
+<h2>Cambiar el Color de Fondo:</h2>
+<p>Como dije, <strong>en este tutorial aprenderemos a como cambiar el color de fondo a nuestras olas de nuestro programa VLF en Lua PGE</strong>. Es un paso <strong>realmente sencillo</strong>.</p>
+<p><span style="text-decoration: underline;">*Si tienes PSP Fat y quieres alg&uacute;nos colores del PSP Slim tendr&aacute;s que <strong>descarg&aacute;r el archivo llamado <a href="http://psp.scenebeta.com/system/files/private/1327SlimColors.rar">13-27.bmp</a></strong> y ponerlo en tu Flash0 de esta forma: "Flash0:/VSH/RESOURCE/13-27.bmp".</span></p>
+<h2>Fondo Color Negro:</h2>
+<p>Simplemente si queremos cambiar el color tenemos que cambiar el <em>"VLF.GetBG(28,"theme.vlf",true)"</em>, como pueden observar abajo en el c&oacute;digo, la funci&oacute;n <strong><em>"VLF.GetBG(28,"theme.vlf",true)"</em></strong> <strong>contiene un n&uacute;mero 28, ese n&uacute;mero 28 pone el color de las olas en negro</strong>.</p>
+<p><div class="geshifilter"><pre class="lua geshifilter-lua" style="font-family:monospace;"><span style="color: #808080; font-style: italic;">--Tutorial Creado por Migueliziosop.</span>
+<span style="color: #b1b100;">require</span><span style="color: #66cc66;">&#40;</span><span style="color: #ff0000;">&quot;VLF&quot;</span><span style="color: #66cc66;">&#41;</span> <span style="color: #808080; font-style: italic;">--Carga la librería VLF. Debe de estar alado del Eboot.PBP.</span>
+VLF.init<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span> <span style="color: #808080; font-style: italic;">--Inicia la librería VLF.</span>
+VLF.GetBG<span style="color: #66cc66;">&#40;</span><span style="color: #cc66cc;">5</span>,<span style="color: #ff0000;">&quot;theme.vlf&quot;</span>,<span style="color: #b1b100;">true</span><span style="color: #66cc66;">&#41;</span> <span style="color: #808080; font-style: italic;">--Carga las olas del menú y el color. El color se cambia cambiando el numero &quot;28&quot;. (1-12 FAT) (1-30 SLIM).</span>
+&nbsp;
+&nbsp;
+<span style="color: #b1b100;">while</span> pge.running<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span> <span style="color: #b1b100;">do</span>  <span style="color: #808080; font-style: italic;">--Cuando Lua PGE estre trabajando lo que hará es..</span>
+pge.controls.update<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span> <span style="color: #808080; font-style: italic;">--Iniciar a leer los controles.</span>
+pge.gfx.startdrawing<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span> <span style="color: #808080; font-style: italic;">--Empieza a dibujar/escribir en pantalla</span>
+pge.gfx.clearscreen<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span> <span style="color: #808080; font-style: italic;">--Limpia la pantalla. Borra todo lo que se encuentre.</span>
+VLF.DrawFrame<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span> <span style="color: #808080; font-style: italic;">--Esta es una función previamente cargada al poner &quot;require(&quot;VLF)&quot; hasta arriba y dibuja las olas. </span>
+&nbsp;
+pge.gfx.enddrawing<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span> <span style="color: #808080; font-style: italic;">--Termina de escribir.</span>
+pge.gfx.swapbuffers<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span> <span style="color: #808080; font-style: italic;">--Cambia el buffer.</span>
+<span style="color: #b1b100;">end</span>  <span style="color: #808080; font-style: italic;">--Terminamos el script y la función.</span></pre></div> </p>
+<p>Si dejamos <strong>"VLF.GetBG(28,"theme.vlf",true)"</strong> cambiar&aacute; el fondo en negro:</p>
+<p style="text-align: center;"><img src="http://psp.scenebeta.com/archivos/psp/Captura25MoradoNegroVLF25.JPG" width="480" height="272" /></p>
+<p>&iquest;Pero si lo queremos de color verde?. Solo b&aacute;sta cambiar el "VLF.GetBG(28,"theme.vlf",true)" por un "VLF.GetBG(5,"theme.vlf",true)". Si notan la difer&eacute;ncia contiene ahora un 5. El n&uacute;mero 5 pone el color verde:</p>
+<p style="text-align: center;"><img src="http://psp.scenebeta.com/archivos/psp/Captura5VerdeVLF5.JPG" width="480" height="272" /></p>
+<hr />
+<hr />
+<h2>A continuaci&oacute;n pondremos el numero respectivo para cada color:</h2>
+<p><div class="geshifilter"><pre class="lua geshifilter-lua" style="font-family:monospace;"><span style="color: #808080; font-style: italic;">--Tutorial hecho por Migueliziosop</span>
+<span style="color: #808080; font-style: italic;">--Color Gris</span>
+VLF.GetBG<span style="color: #66cc66;">&#40;</span><span style="color: #cc66cc;">1</span>,<span style="color: #ff0000;">&quot;theme.vlf&quot;</span>,<span style="color: #b1b100;">true</span><span style="color: #66cc66;">&#41;</span></pre></div></p>
+<p style="text-align: center;"><img src="http://psp.scenebeta.com/archivos/psp/Captura1GrisVLF1.JPG" width="480" height="272" /></p>
+<hr />
+<hr />
+<h2>Color Amarillo:</h2>
+<p><div class="geshifilter"><pre class="lua geshifilter-lua" style="font-family:monospace;"><span style="color: #808080; font-style: italic;">--Tutorial hecho por Migueliziosop</span>
+<span style="color: #808080; font-style: italic;">--Color Amarillo</span>
+VLF.GetBG<span style="color: #66cc66;">&#40;</span><span style="color: #cc66cc;">2</span>,<span style="color: #ff0000;">&quot;theme.vlf&quot;</span>,<span style="color: #b1b100;">true</span><span style="color: #66cc66;">&#41;</span></pre></div> </p>
+<p style="text-align: center;"><img src=" http://psp.scenebeta.com/archivos/psp/Captura2AmarilloVLF2.JPG" width="480" height="272" /></p>
+<hr />
+<hr />
+<h2>Color Verde Claro:</h2>
+<p><div class="geshifilter"><pre class="lua geshifilter-lua" style="font-family:monospace;"><span style="color: #808080; font-style: italic;">--Tutorial hecho por Migueliziosop</span>
+<span style="color: #808080; font-style: italic;">--Color Verde Claro</span>
+VLF.GetBG<span style="color: #66cc66;">&#40;</span><span style="color: #cc66cc;">3</span>,<span style="color: #ff0000;">&quot;theme.vlf&quot;</span>,<span style="color: #b1b100;">true</span><span style="color: #66cc66;">&#41;</span></pre></div> </p>
+<p style="text-align: center;"><img src="http://psp.scenebeta.com/archivos/psp/Captura3VerdeClaroVLF3.JPG" width="480" height="272" /></p>
+<hr />
+<hr />
+<h2>Color Rosa:</h2>
+<p><div class="geshifilter"><pre class="lua geshifilter-lua" style="font-family:monospace;"><span style="color: #808080; font-style: italic;">--Tutorial hecho por Migueliziosop</span>
+<span style="color: #808080; font-style: italic;">--Color Rosa</span>
+VLF.GetBG<span style="color: #66cc66;">&#40;</span><span style="color: #cc66cc;">4</span>,<span style="color: #ff0000;">&quot;theme.vlf&quot;</span>,<span style="color: #b1b100;">true</span><span style="color: #66cc66;">&#41;</span></pre></div> </p>
+<p style="text-align: center;"><img src="http://psp.scenebeta.com/archivos/psp/Captura4RosaVLF4.JPG" width="480" height="272" /></p>
+<hr />
+<hr />
+<h2>Color Verde:</h2>
+<p><div class="geshifilter"><pre class="lua geshifilter-lua" style="font-family:monospace;"><span style="color: #808080; font-style: italic;">--Tutorial hecho por Migueliziosop</span>
+<span style="color: #808080; font-style: italic;">--Color Verde</span>
+VLF.GetBG<span style="color: #66cc66;">&#40;</span><span style="color: #cc66cc;">5</span>,<span style="color: #ff0000;">&quot;theme.vlf&quot;</span>,<span style="color: #b1b100;">true</span><span style="color: #66cc66;">&#41;</span></pre></div></p>
+<p style="text-align: center;"><img src=" http://psp.scenebeta.com/archivos/psp/Captura5VerdeVLF5.JPG" width="480" height="272" /></p>
+<hr />
+<hr />
+<h2>Color Lila/Morado Claro:</h2>
+<p><div class="geshifilter"><pre class="lua geshifilter-lua" style="font-family:monospace;"><span style="color: #808080; font-style: italic;">--Tutorial hecho por Migueliziosop</span>
+<span style="color: #808080; font-style: italic;">--Color Lila/Morado Claro</span>
+VLF.GetBG<span style="color: #66cc66;">&#40;</span><span style="color: #cc66cc;">6</span>,<span style="color: #ff0000;">&quot;theme.vlf&quot;</span>,<span style="color: #b1b100;">true</span><span style="color: #66cc66;">&#41;</span></pre></div></p>
+<p style="text-align: center;"><img src=" http://psp.scenebeta.com/archivos/psp/Captura6LilaMoradoClaroVLF6.JPG" width="480" height="272" /></p>
+<hr />
+<hr />
+<h2>Color Azul Cielo/Aqua Claro:</h2>
+<p><div class="geshifilter"><pre class="lua geshifilter-lua" style="font-family:monospace;"><span style="color: #808080; font-style: italic;">--Tutorial hecho por Migueliziosop</span>
+<span style="color: #808080; font-style: italic;">--Color Azul Cielo</span>
+VLF.GetBG<span style="color: #66cc66;">&#40;</span><span style="color: #cc66cc;">7</span>,<span style="color: #ff0000;">&quot;theme.vlf&quot;</span>,<span style="color: #b1b100;">true</span><span style="color: #66cc66;">&#41;</span></pre></div></p>
+<p style="text-align: center;"><img src=" http://psp.scenebeta.com/archivos/psp/Captura7AzulCieloAquaVLF7.JPG" width="480" height="272" /></p>
+<hr />
+<hr />
+<h2>Color Azul Original:</h2>
+<p><div class="geshifilter"><pre class="lua geshifilter-lua" style="font-family:monospace;"><span style="color: #808080; font-style: italic;">--Tutorial hecho por Migueliziosop</span>
+<span style="color: #808080; font-style: italic;">--Color Azul Original</span>
+VLF.GetBG<span style="color: #66cc66;">&#40;</span><span style="color: #cc66cc;">8</span>,<span style="color: #ff0000;">&quot;theme.vlf&quot;</span>,<span style="color: #b1b100;">true</span><span style="color: #66cc66;">&#41;</span></pre></div></p>
+<p style="text-align: center;"><img src="http://psp.scenebeta.com/archivos/psp/Captura8OriginalAzulFuerteVLF8.JPG" width="480" height="272" /></p>
+<hr />
+<hr />
+<h2 style="text-align: left;">Color Morado:</h2>
+<p style="text-align: left;"><div class="geshifilter"><pre class="lua geshifilter-lua" style="font-family:monospace;"><span style="color: #808080; font-style: italic;">--Tutorial hecho por Migueliziosop</span>
+<span style="color: #808080; font-style: italic;">--Color Morado</span>
+VLF.GetBG<span style="color: #66cc66;">&#40;</span><span style="color: #cc66cc;">9</span>,<span style="color: #ff0000;">&quot;theme.vlf&quot;</span>,<span style="color: #b1b100;">true</span><span style="color: #66cc66;">&#41;</span></pre></div></p>
+<p style="text-align: center;"><img src="http://psp.scenebeta.com/archivos/psp/Captura9MoradoLilaOscuroVLF9.JPG" width="480" height="272" /></p>
+<hr />
+<hr />
+<h2 style="text-align: left;">Color Amarillo Naranja:</h2>
+<p style="text-align: left;"><div class="geshifilter"><pre class="lua geshifilter-lua" style="font-family:monospace;"><span style="color: #808080; font-style: italic;">--Tutorial hecho por Migueliziosop</span>
+<span style="color: #808080; font-style: italic;">--Color Amarillo Naranja</span>
+VLF.GetBG<span style="color: #66cc66;">&#40;</span><span style="color: #cc66cc;">10</span>,<span style="color: #ff0000;">&quot;theme.vlf&quot;</span>,<span style="color: #b1b100;">true</span><span style="color: #66cc66;">&#41;</span></pre></div></p>
+<p style="text-align: center;"><img src=" http://psp.scenebeta.com/archivos/psp/Captura10AmarilloNaranjaVLF10.JPG" width="480" height="272" /></p>
+<hr />
+<hr />
+<h2>Color Caf&eacute;:</h2>
+<p style="text-align: left;"><div class="geshifilter"><pre class="lua geshifilter-lua" style="font-family:monospace;"><span style="color: #808080; font-style: italic;">--Tutorial hecho por Migueliziosop</span>
+<span style="color: #808080; font-style: italic;">--Color Café</span>
+VLF.GetBG<span style="color: #66cc66;">&#40;</span><span style="color: #cc66cc;">11</span>,<span style="color: #ff0000;">&quot;theme.vlf&quot;</span>,<span style="color: #b1b100;">true</span><span style="color: #66cc66;">&#41;</span></pre></div></p>
+<p style="text-align: center;"><img src="http://psp.scenebeta.com/archivos/psp/Captura11CafeVLF11.JPG" width="480" height="272" /></p>
+<hr />
+<hr />
+<h2>Color Rojo:</h2>
+<p><div class="geshifilter"><pre class="lua geshifilter-lua" style="font-family:monospace;"><span style="color: #808080; font-style: italic;">--Tutorial hecho por Migueliziosop</span>
+<span style="color: #808080; font-style: italic;">--Color Rojo</span>
+VLF.GetBG<span style="color: #66cc66;">&#40;</span><span style="color: #cc66cc;">12</span>,<span style="color: #ff0000;">&quot;theme.vlf&quot;</span>,<span style="color: #b1b100;">true</span><span style="color: #66cc66;">&#41;</span></pre></div></p>
+<p style="text-align: center;"><img src=" http://psp.scenebeta.com/archivos/psp/Captura12RojoVLF12.JPG" width="480" height="272" /></p>
+<hr />
+<hr />
+<h2>Color Rosa Claro:</h2>
+<p><div class="geshifilter"><pre class="lua geshifilter-lua" style="font-family:monospace;"><span style="color: #808080; font-style: italic;">--Tutorial hecho por Migueliziosop</span>
+<span style="color: #808080; font-style: italic;">--Color Rosa Claro</span>
+VLF.GetBG<span style="color: #66cc66;">&#40;</span><span style="color: #cc66cc;">13</span>,<span style="color: #ff0000;">&quot;theme.vlf&quot;</span>,<span style="color: #b1b100;">true</span><span style="color: #66cc66;">&#41;</span></pre></div></p>
+<p style="text-align: center;"><img src=" http://psp.scenebeta.com/archivos/psp/Captura13RosaClaroVLF13.JPG" width="480" height="272" /></p>
+<hr />
+<hr />
+<h2>Color Rosa Fuerte:</h2>
+<p><div class="geshifilter"><pre class="lua geshifilter-lua" style="font-family:monospace;"><span style="color: #808080; font-style: italic;">--Tutorial hecho por Migueliziosop</span>
+<span style="color: #808080; font-style: italic;">--Color Rosa Fuerte</span>
+VLF.GetBG<span style="color: #66cc66;">&#40;</span><span style="color: #cc66cc;">14</span>,<span style="color: #ff0000;">&quot;theme.vlf&quot;</span>,<span style="color: #b1b100;">true</span><span style="color: #66cc66;">&#41;</span></pre></div></p>
+<p style="text-align: center;"><img src=" http://psp.scenebeta.com/archivos/psp/Captura14RosaFuerteVLF14.JPG" width="480" height="272" /></p>
+<hr />
+<hr />
+<h2>Color Rosa Oscuro:</h2>
+<p><div class="geshifilter"><pre class="lua geshifilter-lua" style="font-family:monospace;"><span style="color: #808080; font-style: italic;">--Tutorial hecho por Migueliziosop</span>
+<span style="color: #808080; font-style: italic;">--Color Rosa Oscuro</span>
+VLF.GetBG<span style="color: #66cc66;">&#40;</span><span style="color: #cc66cc;">15</span>,<span style="color: #ff0000;">&quot;theme.vlf&quot;</span>,<span style="color: #b1b100;">true</span><span style="color: #66cc66;">&#41;</span></pre></div></p>
+<p style="text-align: center;"><img src=" http://psp.scenebeta.com/archivos/psp/Captura15RosaOscuroVLF15.JPG" width="480" height="272" /></p>
+<hr />
+<hr />
+<h2>Lila Oscuro:</h2>
+<p><div class="geshifilter"><pre class="lua geshifilter-lua" style="font-family:monospace;"><span style="color: #808080; font-style: italic;">--Tutorial hecho por Migueliziosop</span>
+<span style="color: #808080; font-style: italic;">--Color Lila Oscuro</span>
+VLF.GetBG<span style="color: #66cc66;">&#40;</span><span style="color: #cc66cc;">16</span>,<span style="color: #ff0000;">&quot;theme.vlf&quot;</span>,<span style="color: #b1b100;">true</span><span style="color: #66cc66;">&#41;</span></pre></div></p>
+<p style="text-align: center;"><img src="http://psp.scenebeta.com/archivos/psp/Captura16LilaOscuroVLF16.JPG" width="480" height="272" /></p>
+<hr />
+<hr />
+<h2>Color Morado Oscuro:</h2>
+<p><div class="geshifilter"><pre class="lua geshifilter-lua" style="font-family:monospace;"><span style="color: #808080; font-style: italic;">--Tutorial hecho por Migueliziosop</span>
+<span style="color: #808080; font-style: italic;">--Color Morado Oscuro</span>
+VLF.GetBG<span style="color: #66cc66;">&#40;</span><span style="color: #cc66cc;">17</span>,<span style="color: #ff0000;">&quot;theme.vlf&quot;</span>,<span style="color: #b1b100;">true</span><span style="color: #66cc66;">&#41;</span></pre></div></p>
+<p style="text-align: center;"><img src="http://psp.scenebeta.com/archivos/psp/Captura17MoradoOscuroVLF17.JPG" width="480" height="272" /></p>
+<hr />
+<hr />
+<h2>Color Morado m&aacute;s Oscuro:</h2>
+<p><div class="geshifilter"><pre class="lua geshifilter-lua" style="font-family:monospace;"><span style="color: #808080; font-style: italic;">--Tutorial hecho por Migueliziosop</span>
+<span style="color: #808080; font-style: italic;">--Color Morado más Oscuro</span>
+VLF.GetBG<span style="color: #66cc66;">&#40;</span><span style="color: #cc66cc;">18</span>,<span style="color: #ff0000;">&quot;theme.vlf&quot;</span>,<span style="color: #b1b100;">true</span><span style="color: #66cc66;">&#41;</span></pre></div></p>
+<p style="text-align: center;"><img src="http://psp.scenebeta.com/archivos/psp/Captura18MoradoOscuroFuerteVLF18.JPG" width="480" height="272" /></p>
+<hr />
+<hr />
+<h2>Color Lila Claro:</h2>
+<p><div class="geshifilter"><pre class="lua geshifilter-lua" style="font-family:monospace;"><span style="color: #808080; font-style: italic;">--Tutorial hecho por Migueliziosop</span>
+<span style="color: #808080; font-style: italic;">--Color Lila Claro</span>
+VLF.GetBG<span style="color: #66cc66;">&#40;</span><span style="color: #cc66cc;">19</span>,<span style="color: #ff0000;">&quot;theme.vlf&quot;</span>,<span style="color: #b1b100;">true</span><span style="color: #66cc66;">&#41;</span></pre></div></p>
+<p style="text-align: center;"><img src=" http://psp.scenebeta.com/archivos/psp/Captura19LilaClaroVLF19.JPG" width="480" height="272" /></p>
+<hr />
+<hr />
+<h2>Color Morado Claro:</h2>
+<p><div class="geshifilter"><pre class="lua geshifilter-lua" style="font-family:monospace;"><span style="color: #808080; font-style: italic;">--Tutorial hecho por Migueliziosop</span>
+<span style="color: #808080; font-style: italic;">--Color Morado Claro</span>
+VLF.GetBG<span style="color: #66cc66;">&#40;</span><span style="color: #cc66cc;">20</span>,<span style="color: #ff0000;">&quot;theme.vlf&quot;</span>,<span style="color: #b1b100;">true</span><span style="color: #66cc66;">&#41;</span></pre></div></p>
+<p style="text-align: center;"><img src="http://psp.scenebeta.com/archivos/psp/Captura20MoradoClaroVLF20.JPG" width="480" height="272" /></p>
+<hr />
+<hr />
+<h2>Color Morado Azulado:</h2>
+<p><div class="geshifilter"><pre class="lua geshifilter-lua" style="font-family:monospace;"><span style="color: #808080; font-style: italic;">--Tutorial hecho por Migueliziosop</span>
+<span style="color: #808080; font-style: italic;">--Color Morado Azulado</span>
+VLF.GetBG<span style="color: #66cc66;">&#40;</span><span style="color: #cc66cc;">21</span>,<span style="color: #ff0000;">&quot;theme.vlf&quot;</span>,<span style="color: #b1b100;">true</span><span style="color: #66cc66;">&#41;</span></pre></div></p>
+<p style="text-align: center;"><img src="http://psp.scenebeta.com/archivos/psp/Captura21MoradoAzulVLF21.JPG" width="480" height="272" /></p>
+<hr />
+<hr />
+<h2>Color Aqua Claro:</h2>
+<p><div class="geshifilter"><pre class="lua geshifilter-lua" style="font-family:monospace;"><span style="color: #808080; font-style: italic;">--Tutorial hecho por Migueliziosop</span>
+<span style="color: #808080; font-style: italic;">--Color Aqua Claro</span>
+VLF.GetBG<span style="color: #66cc66;">&#40;</span><span style="color: #cc66cc;">22</span>,<span style="color: #ff0000;">&quot;theme.vlf&quot;</span>,<span style="color: #b1b100;">true</span><span style="color: #66cc66;">&#41;</span></pre></div></p>
+<p style="text-align: center;"><img src="http://psp.scenebeta.com/archivos/psp/Captura22AquaClaroVLF22.JPG" width="480" height="272" /></p>
+<hr />
+<hr />
+<h2>Color Aqua Oscuro:</h2>
+<p><div class="geshifilter"><pre class="lua geshifilter-lua" style="font-family:monospace;"><span style="color: #808080; font-style: italic;">--Tutorial hecho por Migueliziosop</span>
+<span style="color: #808080; font-style: italic;">--Color Aqua Oscuro</span>
+VLF.GetBG<span style="color: #66cc66;">&#40;</span><span style="color: #cc66cc;">23</span>,<span style="color: #ff0000;">&quot;theme.vlf&quot;</span>,<span style="color: #b1b100;">true</span><span style="color: #66cc66;">&#41;</span></pre></div></p>
+<p style="text-align: center;"><img src="http://psp.scenebeta.com/archivos/psp/Captura23AquaOscuroVLF23.JPG" width="480" height="272" /></p>
+<hr />
+<hr />
+<h2>Color Aqua Verdoso:</h2>
+<p><div class="geshifilter"><pre class="lua geshifilter-lua" style="font-family:monospace;"><span style="color: #808080; font-style: italic;">--Tutorial hecho por Migueliziosop</span>
+<span style="color: #808080; font-style: italic;">--Color Aqua Verdoso</span>
+VLF.GetBG<span style="color: #66cc66;">&#40;</span><span style="color: #cc66cc;">24</span>,<span style="color: #ff0000;">&quot;theme.vlf&quot;</span>,<span style="color: #b1b100;">true</span><span style="color: #66cc66;">&#41;</span></pre></div></p>
+<p style="text-align: center;"><img src=" http://psp.scenebeta.com/archivos/psp/Captura24AquaVerdosoVLF24.JPG" width="480" height="272" /></p>
+<hr />
+<hr />
+<h2>Color Morado Negro:</h2>
+<p><div class="geshifilter"><pre class="lua geshifilter-lua" style="font-family:monospace;"><span style="color: #808080; font-style: italic;">--Tutorial hecho por Migueliziosop</span>
+<span style="color: #808080; font-style: italic;">--Color Morado Negro</span>
+VLF.GetBG<span style="color: #66cc66;">&#40;</span><span style="color: #cc66cc;">25</span>,<span style="color: #ff0000;">&quot;theme.vlf&quot;</span>,<span style="color: #b1b100;">true</span><span style="color: #66cc66;">&#41;</span></pre></div></p>
+<p style="text-align: center;"><img src="http://psp.scenebeta.com/archivos/psp/Captura25MoradoNegroVLF25.JPG" width="480" height="272" /></p>
+<hr />
+<hr />
+<h2>Color Negro Claro:</h2>
+<p><div class="geshifilter"><pre class="lua geshifilter-lua" style="font-family:monospace;"><span style="color: #808080; font-style: italic;">--Tutorial hecho por Migueliziosop</span>
+<span style="color: #808080; font-style: italic;">--Color Negro Claro</span>
+VLF.GetBG<span style="color: #66cc66;">&#40;</span><span style="color: #cc66cc;">26</span>,<span style="color: #ff0000;">&quot;theme.vlf&quot;</span>,<span style="color: #b1b100;">true</span><span style="color: #66cc66;">&#41;</span></pre></div>&nbsp;</p>
+<p style="text-align: center;"><img src="http://psp.scenebeta.com/archivos/psp/Captura26NegroClaroVLF26.JPG" width="480" height="272" /></p>
+<hr />
+<hr />
+<h2>Color Negro:</h2>
+<p><div class="geshifilter"><pre class="lua geshifilter-lua" style="font-family:monospace;"><span style="color: #808080; font-style: italic;">--Tutorial hecho por Migueliziosop</span>
+<span style="color: #808080; font-style: italic;">--Color Negro</span>
+VLF.GetBG<span style="color: #66cc66;">&#40;</span><span style="color: #cc66cc;">27</span>,<span style="color: #ff0000;">&quot;theme.vlf&quot;</span>,<span style="color: #b1b100;">true</span><span style="color: #66cc66;">&#41;</span></pre></div></p>
+<p style="text-align: center;"><img src=" http://psp.scenebeta.com/archivos/psp/Captura27NegroVLF27.JPG" width="480" height="272" /></p>
+<hr />
+<hr />
+<h2>Color Negro Diferente:</h2>
+<p><div class="geshifilter"><pre class="lua geshifilter-lua" style="font-family:monospace;"><span style="color: #808080; font-style: italic;">--Tutorial hecho por Migueliziosop</span>
+<span style="color: #808080; font-style: italic;">--Color Negro Diferente</span>
+VLF.GetBG<span style="color: #66cc66;">&#40;</span><span style="color: #cc66cc;">28</span>,<span style="color: #ff0000;">&quot;theme.vlf&quot;</span>,<span style="color: #b1b100;">true</span><span style="color: #66cc66;">&#41;</span></pre></div></p>
+<p style="text-align: center;"><img src=" http://psp.scenebeta.com/archivos/psp/Captura28NegroDiferenteVLF28.JPG" width="480" height="272" /></p>
+<hr />
+<hr />
+<h2>Color Lila Rosado Claro:</h2>
+<p><div class="geshifilter"><pre class="lua geshifilter-lua" style="font-family:monospace;"><span style="color: #808080; font-style: italic;">--Tutorial hecho por Migueliziosop</span>
+<span style="color: #808080; font-style: italic;">--Color Lila Rosado Claro</span>
+VLF.GetBG<span style="color: #66cc66;">&#40;</span><span style="color: #cc66cc;">29</span>,<span style="color: #ff0000;">&quot;theme.vlf&quot;</span>,<span style="color: #b1b100;">true</span><span style="color: #66cc66;">&#41;</span></pre></div></p>
+<p style="text-align: center;"><img src=" http://psp.scenebeta.com/archivos/psp/Captura29LilaRosadoVLF29.JPG" width="480" height="272" /></p>
+<hr />
+<hr />
+<h2>Color Caf&eacute; Claro:</h2>
+<p><div class="geshifilter"><pre class="lua geshifilter-lua" style="font-family:monospace;"><span style="color: #808080; font-style: italic;">--Tutorial hecho por Migueliziosop</span>
+<span style="color: #808080; font-style: italic;">--Color Café Claro</span>
+VLF.GetBG<span style="color: #66cc66;">&#40;</span><span style="color: #cc66cc;">30</span>,<span style="color: #ff0000;">&quot;theme.vlf&quot;</span>,<span style="color: #b1b100;">true</span><span style="color: #66cc66;">&#41;</span></pre></div></p>
+<p style="text-align: center;"><img src="http://psp.scenebeta.com/archivos/psp/Captura30CafeClaroVLF30.JPG" width="480" height="272" /></p>
+<p style="text-align: center;"><span style="text-decoration: underline;"><em><strong>*Si se fijan, no es tan dif&iacute;cil, solo tienen que agarrarle pr&aacute;ctica y en m&eacute;nos de 5 minutos le habr&aacute;n cambiado el color de fondo.</strong></em></span></p>
+<!-- google_ad_section_end --><div class="service-links"><div class="service-label">Bookmark/Search this post with </div><ul class="links"><li class="service-links--es-barrapunto first"><a href="http://barrapunto.com/submit.pl?story=He+leido+en+PSP.SceneBeta.com+el+articulo+&lt;a href=&quot;http%3A%2F%2Fpsp.scenebeta.com%2Ftutorial%2Fcambiar-el-color-de-fondo-del-vlf-lua-pge&quot;&gt;Cambiar+el+color+de+fondo+del+VLF+Lua+PGE&lt;/a&gt;&amp;subj=Cambiar+el+color+de+fondo+del+VLF+Lua+PGE" title="Publica esta noticia en Barrapunto.com" id="service-links--es-barrapunto" class="service-links--es-barrapunto" rel="nofollow" target="_blank"><img src="http://psp.scenebeta.com/sites/all/modules/service_links/images/_es_barrapunto.png" alt="Barrapunto" title="" width="16" height="16" /></a></li>
+<li class="service-links--es-fresqui"><a href="http://tec.fresqui.com/post?url=http%3A%2F%2Fpsp.scenebeta.com%2Ftutorial%2Fcambiar-el-color-de-fondo-del-vlf-lua-pge&amp;title=Cambiar+el+color+de+fondo+del+VLF+Lua+PGE" title="Enviar este post a tec.fresqui.com" id="service-links--es-fresqui" class="service-links--es-fresqui" rel="nofollow" target="_blank"><img src="http://psp.scenebeta.com/sites/all/modules/service_links/images/_es_fresqui.png" alt="Fresqui" title="" width="16" height="16" /></a></li>
+<li class="service-links--es-meneame"><a href="http://www.meneame.net/submit.php?url=http%3A%2F%2Fpsp.scenebeta.com%2Ftutorial%2Fcambiar-el-color-de-fondo-del-vlf-lua-pge" title="Añadir a Meneame" id="service-links--es-meneame" class="service-links--es-meneame" rel="nofollow" target="_blank"><img src="http://psp.scenebeta.com/sites/all/modules/service_links/images/_es_meneame.png" alt="Meneame" title="" width="15" height="15" /></a></li>
+<li class="service-links--es-tuenti"><a href="http://www.tuenti.com/share?url=http%3A%2F%2Fpsp.scenebeta.com%2Ftutorial%2Fcambiar-el-color-de-fondo-del-vlf-lua-pge" title="Compartir en Tuenti" id="service-links--es-tuenti" class="service-links--es-tuenti" rel="nofollow" target="_blank"><img src="http://psp.scenebeta.com/sites/all/modules/service_links/images/_es_tuenti.png" alt="Tuenti" title="" width="16" height="16" /></a></li>
+<li class="service-links-digg"><a href="http://digg.com/submit?phase=2&amp;url=http%3A%2F%2Fpsp.scenebeta.com%2Ftutorial%2Fcambiar-el-color-de-fondo-del-vlf-lua-pge&amp;title=Cambiar+el+color+de+fondo+del+VLF+Lua+PGE" title="Publica esta noticia en digg.com" id="service-links-digg" class="service-links-digg" rel="nofollow" target="_blank"><img src="http://psp.scenebeta.com/sites/all/modules/service_links/images/digg.png" alt="Digg" title="" width="16" height="16" /></a></li>
+<li class="service-links-stumbleupon last"><a href="http://www.stumbleupon.com/submit?url=http%3A%2F%2Fpsp.scenebeta.com%2Ftutorial%2Fcambiar-el-color-de-fondo-del-vlf-lua-pge&amp;title=Cambiar+el+color+de+fondo+del+VLF+Lua+PGE" title="Recomienda esta noticia en StumbleUpon" id="service-links-stumbleupon" class="service-links-stumbleupon" rel="nofollow" target="_blank"><img src="http://psp.scenebeta.com/sites/all/modules/service_links/images/stumbleit.png" alt="StumbleUpon" title="" width="16" height="16" /></a></li>
+</ul></div><div class="fivestar-static-form-item"><div class="form-item">
+ <label>Votos totales: </label>
+ <div class="fivestar-widget-static fivestar-widget-static-vote fivestar-widget-static-5 clear-block"><div class="star star-1 star-odd star-first"><span class="on">4.22222</span></div><div class="star star-2 star-even"><span class="on"></span></div><div class="star star-3 star-odd"><span class="on"></span></div><div class="star star-4 star-even"><span class="on"></span></div><div class="star star-5 star-odd star-last"><span class="on" style="width: 22.222%"></span></div></div>
+ <div class="description"><div class="fivestar-summary fivestar-summary-combo"><span class="user-rating">Tu voto: <span>Ninguno</span> </span> <span class="average-rating">Votos totales: <span>4.2</span></span> <span class="total-votes">(<span>90</span> votos)</span></div></div>
+</div>
+</div>  <div id="book-navigation-658" class="book-navigation">
+    
+        <div class="page-links clear-block">
+              <a href="/tutorial/programacion-en-lua-pge" class="page-previous" title="Ir a la página anterior">‹ Programacion en LUA PGE</a>
+                    <a href="/tutorial/programacion-en-lua-pge" class="page-up" title="Ir a la página padre">arriba</a>
+                    <a href="/tutorial/cambiar-la-barra-titlebar-en-vlf-pge" class="page-next" title="Ir a la página siguiente">Cambiar la barra &quot;Titlebar&quot; en VLF PGE ›</a>
+          </div>
+    
+  </div>
+<br class="clear"/><div align="center"><h3>Anuncios Google</h3><div class='adsense ' style='display:inline-block;width:468px;height:60px;'>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-3254352600964522";
+/* 468x60 */
+google_ad_slot = "9719194954";
+google_ad_width = 468;
+google_ad_height = 60;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div></div>    <!-- F C -->
+  </div>
+
+  <div class="clear-block">
+    <div class="meta">
+          <div class="terms"><ul class="links inline"><li class="taxonomy_term_59 first"><a href="/tutoriales/psp/tutoriales-avanzados-homebrew" rel="tag" title="">Tutoriales Avanzados Homebrew</a></li>
+<li class="taxonomy_term_268 last"><a href="/nacionalidad-del-tutorial/mex" rel="tag" title="Mexicano">mex</a></li>
+</ul></div>
+        </div>
+
+          <div class="links"><ul class="links inline"><li class="comment_forbidden first"><span><a href="/user/login?destination=comment%2Freply%2F33979%23comment-form">Inicie sesión</a> o <a href="/user/register?destination=comment%2Freply%2F33979%23comment-form">regístrese</a> para enviar comentarios</span></li>
+<li class="statistics_counter last"><span>112396 lecturas</span></li>
+</ul></div>
+      </div>
+  <div class="clear-block"><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-url="http://psp.scenebeta.com/tutorial/cambiar-el-color-de-fondo-del-vlf-lua-pge" data-text="Cambiar el color de fondo del VLF Lua PGE" data-via="SceneBeta" data-lang="es" >Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script><script type="text/javascript" src="https://apis.google.com/js/plusone.js">{lang: "es"}</script><g:plusone size="medium" count="true"></g:plusone><span style=" float: right;"><script src="http://connect.facebook.net/es_ES/all.js#xfbml=1"></script><fb:like href="http://psp.scenebeta.com/tutorial/cambiar-el-color-de-fondo-del-vlf-lua-pge" send="true" layout="button_count" show_faces="false" width="250" font=""></fb:send></span></div>
+</div>
+<div id="comments">
+  <h2 class="comments">Comentarios</h2><form action="/tutorial/cambiar-el-color-de-fondo-del-vlf-lua-pge"  accept-charset="UTF-8" method="post" id="comment-controls">
+<div><div class="box">
+
+  <h2>Opciones de visualización de comentarios</h2>
+
+  <div class="content"><div class="container-inline"><input type="hidden" name="form_build_id" id="form-106141001f4e9f9f542106286b0af37e" value="form-106141001f4e9f9f542106286b0af37e"  />
+<input type="hidden" name="form_id" id="edit-comment-controls" value="comment_controls"  />
+<div class="form-item" id="edit-mode-wrapper">
+ <select name="mode" class="form-select" id="edit-mode" ><option value="1">Lista plana: colapsada</option><option value="2">Lista plana: expandida</option><option value="3">Lista de hilos: colapsada</option><option value="4" selected="selected">Lista de hilos: expandida</option></select>
+</div>
+<div class="form-item" id="edit-order-wrapper">
+ <select name="order" class="form-select" id="edit-order" ><option value="1" selected="selected">Fecha: primero los más recientes</option><option value="2">Fecha: primero los más antiguos</option></select>
+</div>
+<div class="form-item" id="edit-comments-per-page-wrapper">
+ <select name="comments_per_page" class="form-select" id="edit-comments-per-page" ><option value="10">10 comentarios por página</option><option value="30">30 comentarios por página</option><option value="50" selected="selected">50 comentarios por página</option><option value="70">70 comentarios por página</option><option value="90">90 comentarios por página</option><option value="150">150 comentarios por página</option><option value="200">200 comentarios por página</option><option value="250">250 comentarios por página</option><option value="300">300 comentarios por página</option></select>
+</div>
+<input type="submit" name="op" id="edit-submit" value="Guardar las opciones"  class="form-submit" />
+</div><div class="description">Seleccione la forma que prefiera para mostrar los comentarios y haga clic en «Guardar las opciones» para activar los cambios.</div></div>
+</div>
+
+</div></form>
+<a id="comment-829415"></a>
+<div class="comment comment-published odd">
+
+  <div class="clear-block">
+      <span class="submitted">Mié, 2014-02-12 02:32 — <a href="/user/3225955" title="Ver el perfil de usuario.">thelichprince</a></span>
+  
+  
+  <div class="picture">
+  </div>
+
+    <h3><a href="/tutorial/cambiar-el-color-de-fondo-del-vlf-lua-pge#comment-829415" class="active">Versiones LUA</a></h3>
+
+    <div class="content">
+      <p>Cuantas versiones de lenguaje LUa para programar en PSP hay?<br />LUA, LUA PGE, LUA DEV ? <br />Hay diferencia?</p>          </div>
+  </div>
+
+      <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="/user/login?destination=comment%2Freply%2F33979%23comment-form">Inicie sesión</a> o <a href="/user/register?destination=comment%2Freply%2F33979%23comment-form">regístrese</a> para enviar comentarios</span></li>
+</ul></div>
+  </div>
+<a id="comment-230319"></a>
+<div class="comment comment-published even">
+
+  <div class="clear-block">
+      <span class="submitted">Lun, 2009-05-25 16:32 — <a href="/user/474589" title="Ver el perfil de usuario.">volumes2</a></span>
+  
+  
+  <div class="picture">
+  <a href="/user/474589" title="Ver el perfil de usuario."><img src="http://psp.scenebeta.com/archivos/psp/pictures/picture-474589.jpg" alt="Imagen de volumes2" title="Imagen de volumes2"  /></a></div>
+
+    <h3><a href="/tutorial/cambiar-el-color-de-fondo-del-vlf-lua-pge#comment-230319" class="active">Existe un pack con estos colores</a></h3>
+
+    <div class="content">
+      <p>Ya existe un pack en el que podeis bajar todos estos colores en un s&oacute;lo archivo.Basta con copiar los colores a la flash y activar un plugin.as&iacute; se tiene en la fat todos los colores + colores slim.En psp slim nos&eacute; c&oacute;mo funcionar&aacute;.</p><div class="signature"><hr />
+<p><p>Fat 5.00 m33-7 + Prometheus + Kernel 1.5</p></p></div>
+          </div>
+  </div>
+
+      <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="/user/login?destination=comment%2Freply%2F33979%23comment-form">Inicie sesión</a> o <a href="/user/register?destination=comment%2Freply%2F33979%23comment-form">regístrese</a> para enviar comentarios</span></li>
+</ul></div>
+  </div>
+<div class="indented"><a id="comment-231832"></a>
+<div class="comment comment-published odd">
+
+  <div class="clear-block">
+      <span class="submitted">Sáb, 2009-05-30 15:35 — <a href="/user/92864" title="Ver el perfil de usuario.">Monty64</a><div class="user_badges"><img src="/archivos/www/badges/Coder.gif" alt="Coder" title="Coder"  class="badge coder-1" /></div></span>
+  
+  
+  <div class="picture">
+  <a href="/user/92864" title="Ver el perfil de usuario."><img src="http://psp.scenebeta.com//archivos/www/pictures/picture-92864.png" alt="Imagen de Monty64" title="Imagen de Monty64"  /></a></div>
+
+    <h3><a href="/tutorial/cambiar-el-color-de-fondo-del-vlf-lua-pge#comment-231832" class="active">Te confundes, esto no es</a></h3>
+
+    <div class="content">
+      <p>Te confundes, esto no es para activar los colores de Slim en Phat, es para programar bajo las ondas.</p>          </div>
+  </div>
+
+      <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="/user/login?destination=comment%2Freply%2F33979%23comment-form">Inicie sesión</a> o <a href="/user/register?destination=comment%2Freply%2F33979%23comment-form">regístrese</a> para enviar comentarios</span></li>
+</ul></div>
+  </div>
+<a id="comment-230577"></a>
+<div class="comment comment-published even">
+
+  <div class="clear-block">
+      <span class="submitted">Mar, 2009-05-26 04:06 — <a href="/user/258791" title="Ver el perfil de usuario.">el__QAT</a><div class="user_badges"><img src="/archivos/www/badges/OldOne.gif" alt="Old One" title="Old One"  class="badge old-one-1" /></div></span>
+  
+  
+  <div class="picture">
+  <a href="/user/258791" title="Ver el perfil de usuario."><img src="http://psp.scenebeta.com//archivos/www/pictures/picture-258791.png" alt="Imagen de el__QAT" title="Imagen de el__QAT"  /></a></div>
+
+    <h3><a href="/tutorial/cambiar-el-color-de-fondo-del-vlf-lua-pge#comment-230577" class="active">Mmmm..</a></h3>
+
+    <div class="content">
+      <p>Jejejej andas confundido amigo :P</p>
+<p>Saludos!!</p>          </div>
+  </div>
+
+      <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="/user/login?destination=comment%2Freply%2F33979%23comment-form">Inicie sesión</a> o <a href="/user/register?destination=comment%2Freply%2F33979%23comment-form">regístrese</a> para enviar comentarios</span></li>
+</ul></div>
+  </div>
+<a id="comment-230339"></a>
+<div class="comment comment-published odd">
+
+  <div class="clear-block">
+      <span class="submitted">Lun, 2009-05-25 17:49 — <a href="/user/311639" title="Ver el perfil de usuario.">Migueliziosop</a><div class="user_badges"><img src="/archivos/www/badges/Coder.gif" alt="Coder" title="Coder"  class="badge coder" /><img src="/archivos/www/badges/OldOne.gif" alt="Old One" title="Old One"  class="badge old-one" /></div></span>
+  
+  
+  <div class="picture">
+  <a href="/user/311639" title="Ver el perfil de usuario."><img src="http://psp.scenebeta.com/archivos/psp/pictures/picture-311639.png" alt="Imagen de Migueliziosop" title="Imagen de Migueliziosop"  /></a></div>
+
+    <h3><a href="/tutorial/cambiar-el-color-de-fondo-del-vlf-lua-pge#comment-230339" class="active">Pero..</a></h3>
+
+    <div class="content">
+      <p>Este programa y tutorial sirve para los programadores de aplicaciones homebrew PSP.</p>
+<p>&nbsp;</p>          </div>
+  </div>
+
+      <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="/user/login?destination=comment%2Freply%2F33979%23comment-form">Inicie sesión</a> o <a href="/user/register?destination=comment%2Freply%2F33979%23comment-form">regístrese</a> para enviar comentarios</span></li>
+</ul></div>
+  </div>
+</div><a id="comment-230090"></a>
+<div class="comment comment-published even">
+
+  <div class="clear-block">
+      <span class="submitted">Dom, 2009-05-24 20:55 — <a href="/user/398867" title="Ver el perfil de usuario.">ÐαrκSκy</a><div class="user_badges"><img src="/archivos/www/badges/OldOne.gif" alt="Old One" title="Old One"  class="badge old-one-2" /></div></span>
+  
+  
+  <div class="picture">
+  </div>
+
+    <h3><a href="/tutorial/cambiar-el-color-de-fondo-del-vlf-lua-pge#comment-230090" class="active">Y para hacer un bucle como</a></h3>
+
+    <div class="content">
+      <p>Y para hacer un bucle como se haria? es decir: hay una aplicacion la cual cada vez que entras las olas salen de un color diferente, eso como se haria?</p>
+<p>PD: Es solo por curiosidad</p><div class="signature"><hr />
+<p><p><strong>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;No cuesta nada agradecer!!!</strong></p></p></div>
+          </div>
+  </div>
+
+      <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="/user/login?destination=comment%2Freply%2F33979%23comment-form">Inicie sesión</a> o <a href="/user/register?destination=comment%2Freply%2F33979%23comment-form">regístrese</a> para enviar comentarios</span></li>
+</ul></div>
+  </div>
+<div class="indented"><a id="comment-230097"></a>
+<div class="comment comment-published odd">
+
+  <div class="clear-block">
+      <span class="submitted">Dom, 2009-05-24 21:10 — <a href="/user/311639" title="Ver el perfil de usuario.">Migueliziosop</a><div class="user_badges"><img src="/archivos/www/badges/Coder.gif" alt="Coder" title="Coder"  class="badge coder" /><img src="/archivos/www/badges/OldOne.gif" alt="Old One" title="Old One"  class="badge old-one" /></div></span>
+  
+  
+  <div class="picture">
+  <a href="/user/311639" title="Ver el perfil de usuario."><img src="http://psp.scenebeta.com/archivos/psp/pictures/picture-311639.png" alt="Imagen de Migueliziosop" title="Imagen de Migueliziosop"  /></a></div>
+
+    <h3><a href="/tutorial/cambiar-el-color-de-fondo-del-vlf-lua-pge#comment-230097" class="active">No creo..</a></h3>
+
+    <div class="content">
+      <p>Nos&eacute; si se pueda, si existiera ser&iacute;a con el LuaPlayerHM ser&iacute;a con funciones como random. Creo que LuaPGE tambi&eacute;n las tiene incorporadas. </p>
+<p>Pero en eso, estoy seguro que s&iacute; se puede, solo hay que hayarle la forma.</p><div class="signature"><hr />
+<p><p><a href="http://www.formspring.me/Migueliziosop" rel="nofollow">Hazme la pregunta que quieras ANONIMAMENTE desde aquí</a>.</p></p></div>
+          </div>
+  </div>
+
+      <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="/user/login?destination=comment%2Freply%2F33979%23comment-form">Inicie sesión</a> o <a href="/user/register?destination=comment%2Freply%2F33979%23comment-form">regístrese</a> para enviar comentarios</span></li>
+</ul></div>
+  </div>
+<div class="indented"><a id="comment-230099"></a>
+<div class="comment comment-published even">
+
+  <div class="clear-block">
+      <span class="submitted">Dom, 2009-05-24 21:14 — <a href="/user/398867" title="Ver el perfil de usuario.">ÐαrκSκy</a><div class="user_badges"><img src="/archivos/www/badges/OldOne.gif" alt="Old One" title="Old One"  class="badge old-one-2" /></div></span>
+  
+  
+  <div class="picture">
+  </div>
+
+    <h3><a href="/tutorial/cambiar-el-color-de-fondo-del-vlf-lua-pge#comment-230099" class="active">Gracias por tu respuesta.</a></h3>
+
+    <div class="content">
+      <p>Gracias por tu respuesta. Otra cosa hay en el staff algun coder espa&ntilde;ol?</p>          </div>
+  </div>
+
+      <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="/user/login?destination=comment%2Freply%2F33979%23comment-form">Inicie sesión</a> o <a href="/user/register?destination=comment%2Freply%2F33979%23comment-form">regístrese</a> para enviar comentarios</span></li>
+</ul></div>
+  </div>
+<div class="indented"><a id="comment-230116"></a>
+<div class="comment comment-published odd">
+
+  <div class="clear-block">
+      <span class="submitted">Dom, 2009-05-24 21:31 — <a href="/user/311639" title="Ver el perfil de usuario.">Migueliziosop</a><div class="user_badges"><img src="/archivos/www/badges/Coder.gif" alt="Coder" title="Coder"  class="badge coder" /><img src="/archivos/www/badges/OldOne.gif" alt="Old One" title="Old One"  class="badge old-one" /></div></span>
+  
+  
+  <div class="picture">
+  <a href="/user/311639" title="Ver el perfil de usuario."><img src="http://psp.scenebeta.com/archivos/psp/pictures/picture-311639.png" alt="Imagen de Migueliziosop" title="Imagen de Migueliziosop"  /></a></div>
+
+    <h3><a href="/tutorial/cambiar-el-color-de-fondo-del-vlf-lua-pge#comment-230116" class="active">Muchísimos.</a></h3>
+
+    <div class="content">
+      <p>Bueno, no se si te refieres a espa&ntilde;ol nacido en Espa&ntilde;a o que hable espa&ntilde;ol castellano.</p>
+<p>Aqu&iacute; tengo un amigo del Staff apodado <strong><a href="../../../user/98167" rel="nofollow">P22.</a></strong></p>
+<p>Por ahora el es aprend&iacute;z, pero es del Staff y si no me equivoco es de Espa&ntilde;a. Eso si, si es coder.</p><div class="signature"><hr />
+<p><p><a href="http://www.formspring.me/Migueliziosop" rel="nofollow">Hazme la pregunta que quieras ANONIMAMENTE desde aquí</a>.</p></p></div>
+          </div>
+  </div>
+
+      <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="/user/login?destination=comment%2Freply%2F33979%23comment-form">Inicie sesión</a> o <a href="/user/register?destination=comment%2Freply%2F33979%23comment-form">regístrese</a> para enviar comentarios</span></li>
+</ul></div>
+  </div>
+</div></div></div><a id="comment-229873"></a>
+<div class="comment comment-published even">
+
+  <div class="clear-block">
+      <span class="submitted">Sáb, 2009-05-23 23:44 — <a href="/user/234231" title="Ver el perfil de usuario.">_-Tux-_</a></span>
+  
+  
+  <div class="picture">
+  </div>
+
+    <h3><a href="/tutorial/cambiar-el-color-de-fondo-del-vlf-lua-pge#comment-229873" class="active">muchisimas gracias miguel ;)</a></h3>
+
+    <div class="content">
+      <p>muchisimas gracias miguel ;)</p>          </div>
+  </div>
+
+      <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="/user/login?destination=comment%2Freply%2F33979%23comment-form">Inicie sesión</a> o <a href="/user/register?destination=comment%2Freply%2F33979%23comment-form">regístrese</a> para enviar comentarios</span></li>
+</ul></div>
+  </div>
+<div class="indented"><a id="comment-229881"></a>
+<div class="comment comment-published odd">
+
+  <div class="clear-block">
+      <span class="submitted">Dom, 2009-05-24 00:38 — <a href="/user/344270" title="Ver el perfil de usuario.">DjNaus</a></span>
+  
+  
+  <div class="picture">
+  </div>
+
+    <h3><a href="/tutorial/cambiar-el-color-de-fondo-del-vlf-lua-pge#comment-229881" class="active">Un cosa...</a></h3>
+
+    <div class="content">
+      <p>Queria preguntar aver como se ponia la barra de progreso, y si con este sistema, las llamadas como System.Quit() se pueden hacer, osea usar esta libreria, pero tmb usar las funciones de lua normales. Gracias</p>          </div>
+  </div>
+
+      <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="/user/login?destination=comment%2Freply%2F33979%23comment-form">Inicie sesión</a> o <a href="/user/register?destination=comment%2Freply%2F33979%23comment-form">regístrese</a> para enviar comentarios</span></li>
+</ul></div>
+  </div>
+<div class="indented"><a id="comment-229916"></a>
+<div class="comment comment-published even">
+
+  <div class="clear-block">
+      <span class="submitted">Dom, 2009-05-24 03:55 — <a href="/user/311639" title="Ver el perfil de usuario.">Migueliziosop</a><div class="user_badges"><img src="/archivos/www/badges/Coder.gif" alt="Coder" title="Coder"  class="badge coder" /><img src="/archivos/www/badges/OldOne.gif" alt="Old One" title="Old One"  class="badge old-one" /></div></span>
+  
+  
+  <div class="picture">
+  <a href="/user/311639" title="Ver el perfil de usuario."><img src="http://psp.scenebeta.com/archivos/psp/pictures/picture-311639.png" alt="Imagen de Migueliziosop" title="Imagen de Migueliziosop"  /></a></div>
+
+    <h3><a href="/tutorial/cambiar-el-color-de-fondo-del-vlf-lua-pge#comment-229916" class="active">Mal..</a></h3>
+
+    <div class="content">
+      <p>Este programa/tutorial no sirve en otros LuaPlayers m&aacute;s que en este, osea Lua PGE.</p>          </div>
+  </div>
+
+      <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="/user/login?destination=comment%2Freply%2F33979%23comment-form">Inicie sesión</a> o <a href="/user/register?destination=comment%2Freply%2F33979%23comment-form">regístrese</a> para enviar comentarios</span></li>
+</ul></div>
+  </div>
+<div class="indented"><a id="comment-548355"></a>
+<div class="comment comment-published odd">
+
+  <div class="clear-block">
+      <span class="submitted">Jue, 2011-03-03 20:56 — <a href="/user/1386515" title="Ver el perfil de usuario.">Jordy99</a></span>
+  
+  
+  <div class="picture">
+  <a href="/user/1386515" title="Ver el perfil de usuario."><img src="http://psp.scenebeta.com/archivos/psp/pictures/picture-1386515.jpg" alt="Imagen de Jordy99" title="Imagen de Jordy99"  /></a></div>
+
+    <h3><a href="/tutorial/cambiar-el-color-de-fondo-del-vlf-lua-pge#comment-548355" class="active">SI es verdad</a></h3>
+
+    <div class="content">
+      <p>este programa no sieve y aparte no le entiende al diske tutorial</p>          </div>
+  </div>
+
+      <div class="links"><ul class="links"><li class="comment_forbidden first last"><span><a href="/user/login?destination=comment%2Freply%2F33979%23comment-form">Inicie sesión</a> o <a href="/user/register?destination=comment%2Freply%2F33979%23comment-form">regístrese</a> para enviar comentarios</span></li>
+</ul></div>
+  </div>
+</div></div></div><form action="/tutorial/cambiar-el-color-de-fondo-del-vlf-lua-pge"  accept-charset="UTF-8" method="post" id="comment-controls-1">
+<div><div class="box">
+
+  <h2>Opciones de visualización de comentarios</h2>
+
+  <div class="content"><div class="container-inline"><input type="hidden" name="form_build_id" id="form-802c9fe9624ec2f4a5c7031590967e47" value="form-802c9fe9624ec2f4a5c7031590967e47"  />
+<input type="hidden" name="form_id" id="edit-comment-controls-1" value="comment_controls"  />
+<div class="form-item" id="edit-mode-1-wrapper">
+ <select name="mode" class="form-select" id="edit-mode-1" ><option value="1">Lista plana: colapsada</option><option value="2">Lista plana: expandida</option><option value="3">Lista de hilos: colapsada</option><option value="4" selected="selected">Lista de hilos: expandida</option></select>
+</div>
+<div class="form-item" id="edit-order-1-wrapper">
+ <select name="order" class="form-select" id="edit-order-1" ><option value="1" selected="selected">Fecha: primero los más recientes</option><option value="2">Fecha: primero los más antiguos</option></select>
+</div>
+<div class="form-item" id="edit-comments-per-page-1-wrapper">
+ <select name="comments_per_page" class="form-select" id="edit-comments-per-page-1" ><option value="10">10 comentarios por página</option><option value="30">30 comentarios por página</option><option value="50" selected="selected">50 comentarios por página</option><option value="70">70 comentarios por página</option><option value="90">90 comentarios por página</option><option value="150">150 comentarios por página</option><option value="200">200 comentarios por página</option><option value="250">250 comentarios por página</option><option value="300">300 comentarios por página</option></select>
+</div>
+<input type="submit" name="op" id="edit-submit-1" value="Guardar las opciones"  class="form-submit" />
+</div><div class="description">Seleccione la forma que prefiera para mostrar los comentarios y haga clic en «Guardar las opciones» para activar los cambios.</div></div>
+</div>
+
+</div></form>
+</div>
+          </div>
+                    <div id="footer"><a href="http://www.drupal.org" target="_blank"><img title="Powered by Drupal" alt="Powered by Drupal" src="/misc/powered-black-88x31.png" width="88" height="31" align="middle" border="0" /></a><br />
+El software, c&oacute;digo fuente, logotipos y marcas contenidos en este sitio web son propiedad de sus respectivos due&ntilde;os y est&aacute;n, o pueden estar, sujetos a derechos y/o licencia de uso. Los anuncios, banners y la publicidad son propiedad y responsabilidad de los anunciantes. Los env&iacute;os y publicaciones, salvo indicaci&oacute;n expresa en contra, son propiedad y responsabilidad de quien los realiza. El resto de publicaciones, elementos gr&aacute;ficos y contenido es propiedad de &quot;SB IT MEDIA, S.L.&quot;.<br />
+SceneBeta.com, 2005 - 2014<br />
+<a href="/contact">Contactar con PSP.SceneBeta.com</a> - <a href="/legal">Informaci&oacute;n legal, t&eacute;rminos y condiciones de uso</a>.<br />
+<div class="content"><div class="copyright-image"><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/es/legalcode.es"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/es/88x31.png" width="88" height="31" alt="" title="Creative Commons Reconocimiento-No comercial-Compartir bajo la misma licencia 3.0 España"></a></div>Todo el contenido excluidos software, código fuente, publicidad, logotipos, marcas y elementos gráficos, salvo indicación expresa en contra, está disponible bajo la licencia "<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/es/legalcode.es">Creative Commons Reconocimiento-No comercial-Compartir bajo la misma licencia 3.0 España</a>" y puede ser utilizado de forma no comercial manteniendo el tipo de licencia y con las restricciones que establece dicha licencia siempre que se se enlace su ubicación original citando la fuente y el autor.</div><div id="block-block-13" class="clear-block block block-block">
+
+
+  <div class="content"><!-- Histats.com  START  --><!-- Histats.com  START  --><script  type="text/javascript" language="javascript"> 
+var s_sid = 141901;var st_dominio = 4; 
+var cimg = 428;var cwi =112;var che =75; 
+</script><script  type="text/javascript" language="javascript" src="http://s11.histats.com/js9.js"></script><p>
+<noscript><a href="http://www.histats.com/es/" target="_blank"><br />
+<img  src="http://s103.histats.com/stats/0.gif?141901&amp;1" alt="contadores de web" border="0"></a><br />
+</noscript></p>
+<!-- Histats.com  END  --><!-- Histats.com  END  --></div>
+</div>
+</div>
+      </div></div></div></div> <!-- /.left-corner, /.right-corner, /#squeeze, /#center -->
+
+              <div id="sidebar-right" class="sidebar">
+                    <div id="block-block-7" class="clear-block block block-block">
+
+  <h2>Patrocinadores</h2>
+
+  <div class="content"><!--<a href="http://ocioyfigura.com/" target="_blank"><img border="0" src="/imgpub/psp/ocioyfigura200903_125_125.gif" width="125" height="125" alt="http://ocioyfigura.com"></a>--><!--<a href="http://ocioyfigura.com/" target="_blank"><img border="0" src="/imgpub/psp/ocioyfigura200903_125_125.gif" width="125" height="125" alt="http://ocioyfigura.com"></a>--></div>
+</div>
+<div id="block-book-0" class="clear-block block block-book">
+
+  <h2><a href="/tutorial/tutoriales-programacion-psp-y-avanzados-de-homebrew" class="book-title">Tutoriales programacion PSP y avanzados de Homebrew</a></h2>
+
+  <div class="content"><ul class="menu"><li class="collapsed first"><a href="/tutorial/tutoriales-para-programar-en-c-para-psp">Tutoriales para Programar en C para PSP</a></li>
+<li class="expanded active-trail"><a href="/tutorial/tutoriales-para-programar-en-lua-para-psp">Tutoriales para Programar en LUA para PSP</a><ul class="menu"><li class="leaf first"><a href="/tutorial/ejecutar-juego-en-lua-sin-usar-lua-player-eboot-de-ejemplo">Ejecutar juego en LUA sin usar LUA Player (eBoot de ejemplo)</a></li>
+<li class="collapsed"><a href="/tutorial/ejemplo-de-juego-programado-en-lua">Ejemplo de juego programado en LUA</a></li>
+<li class="leaf"><a href="/tutorial/explorador-de-archivos">Explorador de archivos </a></li>
+<li class="collapsed"><a href="/tutorial/fragmentos-de-codigo-lua-snippets">Fragmentos de codigo Lua (Snippets)</a></li>
+<li class="leaf"><a href="/tutorial/lua-prueba-de-errores-i">Lua a prueba de errores (I)</a></li>
+<li class="leaf"><a href="/tutorial/multitarea-en-lua">Multitarea en Lua</a></li>
+<li class="leaf"><a href="/tutorial/olas-en-lua">Olas en Lua</a></li>
+<li class="leaf"><a href="/tutorial/persecucion-en-luadev">Persecucion en LUADev</a></li>
+<li class="collapsed"><a href="/tutorial/programacion-en-lua">Programacion en LUA</a></li>
+<li class="expanded active-trail"><a href="/tutorial/programacion-en-lua-pge">Programacion en LUA PGE</a><ul class="menu"><li class="leaf first active-trail"><a href="/tutorial/cambiar-el-color-de-fondo-del-vlf-lua-pge" class="active">Cambiar el color de fondo del VLF Lua PGE</a></li>
+<li class="leaf"><a href="/tutorial/cambiar-la-barra-titlebar-en-vlf-pge">Cambiar la barra &quot;Titlebar&quot; en VLF PGE</a></li>
+<li class="leaf"><a href="/tutorial/cambiar-las-olas-de-fondo-en-vlf-pge">Cambiar las Olas de fondo en VLF PGE</a></li>
+<li class="leaf"><a href="/tutorial/comandos-mas-importantes-de-lua-pge">Comandos mas importantes de LUA PGE</a></li>
+<li class="leaf"><a href="/tutorial/como-hacer-un-servidor-de-descargas">Como hacer un servidor de descargas</a></li>
+<li class="leaf"><a href="/tutorial/descomprimir-archivos-zip-en-un-directorio">Descomprimir archivos zip en un directorio</a></li>
+<li class="leaf"><a href="/tutorial/hacer-una-licencia-imaginaria-en-vlf-pge">Hacer una licencia imaginaria en VLF PGE</a></li>
+<li class="leaf"><a href="/tutorial/menu-simple-bajo-vlf-pge">Menu Simple bajo VLF PGE</a></li>
+<li class="leaf"><a href="/tutorial/temporizadores">Temporizadores</a></li>
+<li class="leaf last"><a href="/tutorial/uso-de-sprites">Uso de sprites</a></li>
+</ul></li>
+<li class="collapsed"><a href="/tutorial/un-nuevo-tutorial-de-lua-desde-lo-basico-lo-concreto">Un nuevo tutorial de Lua, desde lo básico a lo concreto</a></li>
+<li class="collapsed last"><a href="/tutorial/una-forma-alternativa-de-iniciarse-en-lua">Una forma alternativa de iniciarse en LUA</a></li>
+</ul></li>
+<li class="leaf"><a href="/tutorial/como-crear-tu-propio-portal-para-psp">Como crear tu propio portal para  PSP</a></li>
+<li class="leaf"><a href="/tutorial/como-crear-un-boot-recovery">Como crear un Boot To Recovery.</a></li>
+<li class="leaf"><a href="/tutorial/como-descomprimir-eboots-comprimidos-con-psppacker">Como descomprimir eBoots comprimidos con PSPPacker</a></li>
+<li class="leaf"><a href="/tutorial/como-hacer-que-tu-homebrew-se-actualice-solo-internet">Como hacer que tu Homebrew se actualice solo via internet</a></li>
+<li class="leaf"><a href="/tutorial/como-instalar-un-pspdevpak">Como instalar un PSPDEVPAK</a></li>
+<li class="leaf"><a href="/tutorial/creando-nuestra-aplicacion-para-psvita">Creando nuestra aplicación para PSVita</a></li>
+<li class="leaf"><a href="/tutorial/crear-autoinstalador-con-clickteam-install-creator-spanish">Crear Autoinstalador con Clickteam Install Creator Spanish</a></li>
+<li class="leaf"><a href="/tutorial/notas-sobre-programar-en-adobe-macromedia-flash-para-psp">Notas sobre programar en Adobe/Macromedia Flash para PSP</a></li>
+<li class="leaf"><a href="/tutorial/programa-modular">Programa modular</a></li>
+<li class="collapsed"><a href="/tutorial/programacion-en-luaplayerhm">Programacion en LuaPlayerHM</a></li>
+<li class="leaf"><a href="/tutorial/teclado-para-psp-pikey">Teclado para PSP: Pikey</a></li>
+<li class="leaf"><a href="/tutorial/traducir-homebrew">Traducir Homebrew</a></li>
+<li class="leaf"><a href="/tutorial/transferir-nuestros-juegos-de-psppsvita-de-ps3-psvita">Transferir nuestros juegos de PSP/PSVita de PS3 a PSVita</a></li>
+<li class="collapsed"><a href="/tutorial/tutoriales-para-programar-en-onelua-para-psp">Tutoriales para Programar en ONELUA para PSP</a></li>
+<li class="leaf last"><a href="/tutorial/documentacion-alternativa-para-psp">Documentacion alternativa para PSP</a></li>
+</ul></div>
+</div>
+        </div>
+      
+    </div> <!-- /container -->
+  </div>
+<!-- /layout -->
+
+  <script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-312269-1"]);_gaq.push(["_setVar","anonymous user"]);_gaq.push(['_setCustomVar',1,"User roles","anonymous user",1]);_gaq.push(["_trackPageview"]);_gaq.push(['aggregate._setAccount','UA-312269-10'],['aggregate._setDomainName','scenebeta.com'],['aggregate._trackPageview']);(function(){var ga=document.createElement("script");ga.type="text/javascript";ga.async=true;ga.src="/archivos/psp/googleanalytics/ga.js?3";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(ga,s)})()
+//--><!]]>
+</script>
+  <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-2.newrelic.com","licenseKey":"acae670044","applicationID":"2115686","transactionName":"YgBbbEZYX0VZU0JeDltKeFtAUF5YF15ZUwRqFVhfUWZHX11H","queueTime":0,"applicationTime":133,"ttGuid":"","agentToken":"","atts":"TkdYGg5CTEs=","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-476.min.js"}</script></body>
+</html>
