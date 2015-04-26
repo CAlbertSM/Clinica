@@ -137,15 +137,25 @@ namespace ClinicaSanJose
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //FrmPrescripcion crear = new FrmPrescripcion();
+            FrmPrescripcion crear = new FrmPrescripcion();
             //DialogResult res = crear.ShowDialog();
             //string prescripcion = "";
             //if (res == DialogResult.OK)
             //{
-            //    prescripcion = crear.MedicamentoDosis;
+            crear.cargarComponentes(codigoEmpleadoLogueado, expedienteConsulta.NumeroExpediente,2);
+            crear.ShowDialog();
             //}
 
             //this.cadena = prescripcion;
+
+        }
+
+        private void btVerPrescripcion_Click(object sender, EventArgs e)
+        {
+            FrmPrescripcion ver = new FrmPrescripcion();
+            ver.cargarComponentes(codigoEmpleadoLogueado, expedienteConsulta.NumeroExpediente,1);
+            ver.ShowDialog();
+            
 
         }
 
@@ -262,6 +272,8 @@ namespace ClinicaSanJose
             this.formOpciones.cargarBaseDeDatos();
             this.Close();
         }
+
+        
 
 
     }

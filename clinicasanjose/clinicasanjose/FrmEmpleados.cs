@@ -123,7 +123,7 @@ namespace ClinicaSanJose
                                                 this.cmbGeneroEmpleado.SelectedItem.ToString(), this.txtNoColegiado.Text.ToString()))
                 {
 
-                    MessageBox.Show("Empleado Agregado Exitosamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Empleado Agregado Exitosamente", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                     this.txtNoEmpleado.Clear();
                     this.txtDireccionEmpleado.Clear();
@@ -138,7 +138,7 @@ namespace ClinicaSanJose
                     this.txtTelEmpleado.Clear();
                     this.cmbGeneroEmpleado.ResetText();
                     this.cmbTipoEmpleado.ResetText();
-                    this.opciones.cargarBaseDeDatos();
+                    
                 }
                 else {
 
@@ -170,7 +170,6 @@ namespace ClinicaSanJose
                     if (estado.Equals(true))
                     {
                         MessageBox.Show("Empleado Eliminado con exito", "Exito", MessageBoxButtons.OK);
-                        this.opciones.cargarBaseDeDatos();
                     }
                     else
                     {
@@ -413,11 +412,6 @@ namespace ClinicaSanJose
 
 
             }
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
         }
     }
 }

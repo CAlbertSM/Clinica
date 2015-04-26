@@ -77,10 +77,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(260, 210);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 14);
+            this.label2.Size = new System.Drawing.Size(44, 15);
             this.label2.TabIndex = 1;
             this.label2.Text = "Fecha:";
             // 
@@ -88,10 +88,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(27, 210);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 14);
+            this.label3.Size = new System.Drawing.Size(109, 15);
             this.label3.TabIndex = 2;
             this.label3.Text = "Código Empleado:";
             // 
@@ -99,10 +99,10 @@
             // 
             this.lblFecha.AutoSize = true;
             this.lblFecha.BackColor = System.Drawing.Color.Transparent;
-            this.lblFecha.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFecha.Location = new System.Drawing.Point(306, 210);
             this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(75, 14);
+            this.lblFecha.Size = new System.Drawing.Size(69, 15);
             this.lblFecha.TabIndex = 19;
             this.lblFecha.Text = "12/12/2014";
             this.lblFecha.Click += new System.EventHandler(this.label12_Click);
@@ -111,10 +111,10 @@
             // 
             this.lblCodigoEmpleado.AutoSize = true;
             this.lblCodigoEmpleado.BackColor = System.Drawing.Color.Transparent;
-            this.lblCodigoEmpleado.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodigoEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCodigoEmpleado.Location = new System.Drawing.Point(133, 210);
             this.lblCodigoEmpleado.Name = "lblCodigoEmpleado";
-            this.lblCodigoEmpleado.Size = new System.Drawing.Size(35, 14);
+            this.lblCodigoEmpleado.Size = new System.Drawing.Size(35, 15);
             this.lblCodigoEmpleado.TabIndex = 20;
             this.lblCodigoEmpleado.Text = "0001";
             // 
@@ -154,7 +154,7 @@
             // btGuardar
             // 
             this.btGuardar.Enabled = false;
-            this.btGuardar.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btGuardar.Location = new System.Drawing.Point(62, 586);
             this.btGuardar.Name = "btGuardar";
             this.btGuardar.Size = new System.Drawing.Size(168, 31);
@@ -165,7 +165,7 @@
             // 
             // btVerDatosPaciente
             // 
-            this.btVerDatosPaciente.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btVerDatosPaciente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btVerDatosPaciente.Location = new System.Drawing.Point(233, 586);
             this.btVerDatosPaciente.Name = "btVerDatosPaciente";
             this.btVerDatosPaciente.Size = new System.Drawing.Size(168, 31);
@@ -176,7 +176,7 @@
             // 
             // btVerHistorial
             // 
-            this.btVerHistorial.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btVerHistorial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btVerHistorial.Location = new System.Drawing.Point(407, 586);
             this.btVerHistorial.Name = "btVerHistorial";
             this.btVerHistorial.Size = new System.Drawing.Size(168, 31);
@@ -187,7 +187,7 @@
             // 
             // btEliminar
             // 
-            this.btEliminar.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btEliminar.Location = new System.Drawing.Point(581, 586);
             this.btEliminar.Name = "btEliminar";
             this.btEliminar.Size = new System.Drawing.Size(168, 31);
@@ -198,7 +198,7 @@
             // 
             // btCrearPrescripcion
             // 
-            this.btCrearPrescripcion.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btCrearPrescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCrearPrescripcion.Location = new System.Drawing.Point(20, 265);
             this.btCrearPrescripcion.Name = "btCrearPrescripcion";
             this.btCrearPrescripcion.Size = new System.Drawing.Size(168, 31);
@@ -209,22 +209,23 @@
             // 
             // btVerPrescripcion
             // 
-            this.btVerPrescripcion.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btVerPrescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btVerPrescripcion.Location = new System.Drawing.Point(190, 265);
             this.btVerPrescripcion.Name = "btVerPrescripcion";
             this.btVerPrescripcion.Size = new System.Drawing.Size(168, 31);
             this.btVerPrescripcion.TabIndex = 30;
             this.btVerPrescripcion.Text = "Ver Prescripcion";
             this.btVerPrescripcion.UseVisualStyleBackColor = true;
+            this.btVerPrescripcion.Click += new System.EventHandler(this.btVerPrescripcion_Click);
             // 
             // lblAccion
             // 
             this.lblAccion.AutoSize = true;
             this.lblAccion.BackColor = System.Drawing.Color.Transparent;
-            this.lblAccion.Font = new System.Drawing.Font("Cambria", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAccion.Location = new System.Drawing.Point(36, 171);
             this.lblAccion.Name = "lblAccion";
-            this.lblAccion.Size = new System.Drawing.Size(333, 25);
+            this.lblAccion.Size = new System.Drawing.Size(360, 25);
             this.lblAccion.TabIndex = 32;
             this.lblAccion.Text = "Buscar el Expediente de la Consulta";
             // 
@@ -258,10 +259,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(29, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 14);
+            this.label1.Size = new System.Drawing.Size(86, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "N°Expediente:";
             // 
@@ -269,10 +270,10 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(29, 58);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 14);
+            this.label4.Size = new System.Drawing.Size(106, 15);
             this.label4.TabIndex = 3;
             this.label4.Text = "Nombre Paciente:";
             // 
@@ -314,10 +315,10 @@
             // 
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(17, 180);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(74, 14);
+            this.label15.Size = new System.Drawing.Size(78, 15);
             this.label15.TabIndex = 19;
             this.label15.Text = "Observacion:";
             // 
@@ -335,10 +336,10 @@
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(17, 28);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(60, 14);
+            this.label9.Size = new System.Drawing.Size(64, 15);
             this.label9.TabIndex = 5;
             this.label9.Text = "Problema:";
             this.label9.Click += new System.EventHandler(this.label9_Click);
@@ -347,10 +348,10 @@
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(16, 104);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(69, 14);
+            this.label10.Size = new System.Drawing.Size(75, 15);
             this.label10.TabIndex = 6;
             this.label10.Text = "Diagnostico:";
             // 
@@ -431,10 +432,10 @@
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(29, 155);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(80, 15);
+            this.label8.Size = new System.Drawing.Size(89, 16);
             this.label8.TabIndex = 3;
             this.label8.Text = "Temperatura:";
             // 
@@ -442,10 +443,10 @@
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(30, 128);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(52, 15);
+            this.label7.Size = new System.Drawing.Size(57, 16);
             this.label7.TabIndex = 2;
             this.label7.Text = "Presion:";
             // 
@@ -453,10 +454,10 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(31, 96);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 15);
+            this.label6.Size = new System.Drawing.Size(60, 16);
             this.label6.TabIndex = 1;
             this.label6.Text = "Estatura:";
             // 
@@ -464,10 +465,10 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(30, 65);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(36, 15);
+            this.label5.Size = new System.Drawing.Size(43, 16);
             this.label5.TabIndex = 0;
             this.label5.Text = "Peso:";
             // 

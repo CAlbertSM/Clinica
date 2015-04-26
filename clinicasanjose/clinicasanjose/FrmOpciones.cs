@@ -24,13 +24,70 @@ namespace ClinicaSanJose
 
         public void cargarBaseDeDatos()
         {
-            this.conexion.cargarBaseDeDatos(); 
-            this.empleados = conexion.empleados;
-            this.consultas = conexion.consultas;
-            this.expedientes = conexion.expedientes;
-            this.prescripciones = conexion.prescripciones;
-            this.tipoEmpleados = conexion.tipoEmpleados;
-            this.usuarios = conexion.usuarios;
+            this.empleados = conexion.obtenerEmpleado();
+            this.consultas = conexion.obtenerConsulta();
+            this.expedientes = conexion.obtenerExpediente();
+            this.prescripciones = conexion.obtenerPrescipcion();
+            this.tipoEmpleados = conexion.obtenerTiposEmpleado();
+            this.usuarios = conexion.obtenerUsuarios();
+
+            foreach (Empleado empleado in empleados)
+            {
+                foreach (TipoEmpleado tipoempleado in tipoEmpleados)
+                {
+                    if (tipoempleado.IdTipoEmpleado == empleado.IdTipoEmpleado)
+                    {
+                        empleado.TipoEmpleado = tipoempleado;
+                        break;
+                    }
+                }
+
+                foreach (Consulta consulta in consultas)
+                {
+                    if (consulta.CodigoEmpleado == empleado.CodigoEmpleado)
+                    {
+                        consulta.Empleado = empleado;
+                        break;
+                    }
+                }
+            }
+
+            foreach (Prescripcion prescripcion in prescripciones)
+            {
+                foreach (Empleado empleado in empleados)
+                {
+                    if (prescripcion.CodigoEmpleado == empleado.CodigoEmpleado)
+                    {
+                        prescripcion.Empleado = empleado;
+                        empleado.Prescripciones.Add(prescripcion);
+                    }
+                }
+            }
+
+            foreach (Expediente expediente in expedientes)
+            {
+                foreach (Consulta consulta in consultas)
+                {
+                    if (consulta.NumeroExpediente == expediente.NumeroExpediente)
+                    {
+                        consulta.Expediente = expediente;
+                        expediente.Consultas.Add(consulta);
+                    }
+                }
+            }
+
+            foreach (Consulta consulta in consultas)
+            {
+                foreach (Prescripcion prescripcion in prescripciones)
+                {
+                    if (consulta.Fecha.Equals(prescripcion.Fecha) && consulta.NumeroExpediente == prescripcion.NumeroExpediente)
+                    {
+                        consulta.Prescipciones.Add(prescripcion);
+                        prescripcion.Expediente = consulta.Expediente;
+                        break;
+                    }
+                }
+            }
         }
 
         public FrmOpciones()
@@ -80,7 +137,7 @@ namespace ClinicaSanJose
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             FrmEmpleados emple = new FrmEmpleados(false, this.conexion, this);
-            emple.ShowDialog();
+            emple.Show();
             
         }
 

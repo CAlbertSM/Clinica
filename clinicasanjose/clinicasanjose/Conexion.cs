@@ -9,15 +9,9 @@ namespace ClinicaSanJose
 {
     public class Conexion
     {
-        //private String cadenaConexion = "Data Source=.\\MSSQLSERVER2012;Initial Catalog=Clinica;Integrated Security=True";
-        private String cadenaConexion = @"Data Source=.\SQLEXPRESS;Initial Catalog=Clinica;Integrated Security=True";
+        private String cadenaConexion = "Data Source=ALEX\\SQLEXPRESS;Initial Catalog=Clinica;Integrated Security=True";
+        //private String cadenaConexion = @"Data Source=.\SQLEXPRESS;Initial Catalog=Clinica;Integrated Security=True";
         private SqlConnection conexion;
-        internal List<Consulta> consultas = new List<Consulta>();
-        internal List<Empleado> empleados = new List<Empleado>();
-        internal List<Expediente> expedientes = new List<Expediente>();
-        internal List<Prescripcion> prescripciones = new List<Prescripcion>();
-        internal List<TipoEmpleado> tipoEmpleados = new List<TipoEmpleado>();
-        internal List<Usuario> usuarios = new List<Usuario>();
 
         public Conexion()
         {
@@ -195,7 +189,7 @@ namespace ClinicaSanJose
             this.conexion.Close();
             return prescripciones;
         }
-
+        
         public Boolean actualizarPrescripcion(Int32 NumeroExpediente, DateTime Fecha, Int32 CodigoEmpleado, String NombreMedicamento, String Dosis)
         {
             SqlCommand comando = new SqlCommand("actualizaPrescripcion", this.conexion);
@@ -232,7 +226,7 @@ namespace ClinicaSanJose
             }
         }
 
-        public Boolean eliminarPrescripcion(Int32 NumeroExpediente)
+        public Boolean eliminarPrescripcion(Int32 NumeroExpediente,String NombreMedicamento)
         {
             SqlCommand comando = new SqlCommand("eliminarPrescripcion", this.conexion);
             comando.CommandType = System.Data.CommandType.StoredProcedure;
@@ -240,7 +234,12 @@ namespace ClinicaSanJose
             SqlParameter numeroExpediente = comando.Parameters.Add("@NumeroExpediente", System.Data.SqlDbType.Int);
             numeroExpediente.Direction = System.Data.ParameterDirection.Input;
 
+            SqlParameter nombreMedicamento = comando.Parameters.Add("@NombreMedicamento", System.Data.SqlDbType.VarChar, 70);
+            nombreMedicamento.Direction = System.Data.ParameterDirection.Input;
+
             numeroExpediente.Value = NumeroExpediente;
+            nombreMedicamento.Value = NombreMedicamento;
+
             this.conexion.Open();
 
             try
@@ -290,6 +289,34 @@ namespace ClinicaSanJose
                 conexion.Close();
                 return false;
             }
+        }
+
+        // Agregue este metodo
+        public List<Prescripcion> leerPrescripciones(int numExpediente)
+        {
+            List<Prescripcion> prescripciones = new List<Prescripcion>();
+
+            SqlCommand comando = new SqlCommand("consultarPrescripcion", this.conexion);
+            comando.CommandType = System.Data.CommandType.StoredProcedure;
+
+            SqlParameter numeroExpediente = comando.Parameters.Add("@NumeroExpediente", System.Data.SqlDbType.Int);
+            numeroExpediente.Direction = System.Data.ParameterDirection.Input;
+
+            numeroExpediente.Value = numExpediente;
+
+            this.conexion.Open();
+
+            SqlDataReader lector = comando.ExecuteReader();
+
+            while (lector.Read())
+            {
+                prescripciones.Add(new Prescripcion(lector.GetInt32(1), lector.GetDateTime(2), lector.GetInt32(3),
+                    lector.GetString(4), lector.GetString(5)));
+            }
+            lector.Close();
+            this.conexion.Close();
+
+            return prescripciones;
         }
         #endregion
 
@@ -954,74 +981,6 @@ namespace ClinicaSanJose
                 return false;
             }
 
-        }
-
-        public void cargarBaseDeDatos()
-        {
-            this.empleados = obtenerEmpleado();
-            this.consultas = obtenerConsulta();
-            this.expedientes = obtenerExpediente();
-            this.prescripciones = obtenerPrescipcion();
-            this.tipoEmpleados = obtenerTiposEmpleado();
-            this.usuarios = obtenerUsuarios();
-
-            foreach (Empleado empleado in empleados)
-            {
-                foreach (TipoEmpleado tipoempleado in tipoEmpleados)
-                {
-                    if (tipoempleado.IdTipoEmpleado == empleado.IdTipoEmpleado)
-                    {
-                        empleado.TipoEmpleado = tipoempleado;
-                        break;
-                    }
-                }
-
-                foreach (Consulta consulta in consultas)
-                {
-                    if (consulta.CodigoEmpleado == empleado.CodigoEmpleado)
-                    {
-                        consulta.Empleado = empleado;
-                        break;
-                    }
-                }
-            }
-
-            foreach (Prescripcion prescripcion in prescripciones)
-            {
-                foreach (Empleado empleado in empleados)
-                {
-                    if (prescripcion.CodigoEmpleado == empleado.CodigoEmpleado)
-                    {
-                        prescripcion.Empleado = empleado;
-                        empleado.Prescripciones.Add(prescripcion);
-                    }
-                }
-            }
-
-            foreach (Expediente expediente in expedientes)
-            {
-                foreach (Consulta consulta in consultas)
-                {
-                    if (consulta.NumeroExpediente == expediente.NumeroExpediente)
-                    {
-                        consulta.Expediente = expediente;
-                        expediente.Consultas.Add(consulta);
-                    }
-                }
-            }
-
-            foreach (Consulta consulta in consultas)
-            {
-                foreach (Prescripcion prescripcion in prescripciones)
-                {
-                    if (consulta.Fecha.Equals(prescripcion.Fecha) && consulta.NumeroExpediente == prescripcion.NumeroExpediente)
-                    {
-                        consulta.Prescipciones.Add(prescripcion);
-                        prescripcion.Expediente = consulta.Expediente;
-                        break;
-                    }
-                }
-            }
         }
 
     }
