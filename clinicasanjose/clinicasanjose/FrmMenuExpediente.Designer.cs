@@ -115,7 +115,6 @@
             this.Name = "FrmMenuExpediente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuExpediente";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMenuExpediente_FormClosed);
             this.Load += new System.EventHandler(this.FrmMenuExpediente_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox2.ResumeLayout(false);

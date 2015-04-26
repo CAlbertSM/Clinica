@@ -136,7 +136,6 @@ namespace ClinicaSanJose
             if (this.DialogResult != System.Windows.Forms.DialogResult.OK)
             {
                 conexion.eliminarExpediente(expedienteActual.NumeroExpediente);
-                this.formOpciones.cargarBaseDeDatos();
             }
         }
 
@@ -220,7 +219,6 @@ namespace ClinicaSanJose
             if (!this.txtIdPaciente.Text.Trim().Equals(String.Empty))
             {
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
-                this.formOpciones.cargarBaseDeDatos();
             }
             
         }
@@ -269,7 +267,6 @@ namespace ClinicaSanJose
                 if (estado.Equals(true))
                 {
                     MessageBox.Show("Archivo guardado con exito", "Exito", MessageBoxButtons.OK);
-                    this.formOpciones.cargarBaseDeDatos();
                 }
                 else
                 {
@@ -313,7 +310,6 @@ namespace ClinicaSanJose
                     if (estado.Equals(true))
                     {
                         MessageBox.Show("Archivo Modificado con exito", "Exito", MessageBoxButtons.OK);
-                        this.formOpciones.cargarBaseDeDatos();
                     }
                     else
                     {
@@ -354,7 +350,6 @@ namespace ClinicaSanJose
                 if (estado.Equals(true))
                 {
                     MessageBox.Show("Archivo Eliminado con exito", "Exito", MessageBoxButtons.OK);
-                    this.formOpciones.cargarBaseDeDatos();
                 }
                 else
                 {

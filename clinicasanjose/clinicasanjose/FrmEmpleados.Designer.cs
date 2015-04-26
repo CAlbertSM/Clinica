@@ -170,9 +170,9 @@
             this.label10.Font = new System.Drawing.Font("Cambria", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(47, 147);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(123, 25);
+            this.label10.Size = new System.Drawing.Size(302, 25);
             this.label10.TabIndex = 2;
-            this.label10.Text = "Empleados...";
+            this.label10.Text = "Buscar Expediente del Paciente..";
             // 
             // pictureBox1
             // 
@@ -218,7 +218,6 @@
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Empleado";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // FechaNacEmpleado
             // 

@@ -56,10 +56,5 @@ namespace ClinicaSanJose
         {
 
         }
-
-        private void FrmMenuExpediente_FormClosed(object sender, FormClosedEventArgs e)
-        {
-
-        }
     }
 }
