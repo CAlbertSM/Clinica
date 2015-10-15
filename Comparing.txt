@@ -1,0 +1,1056 @@
+*&---------------------------------------------------------------------*
+*& Report  ZFI_CC_LIBMAY                                               *
+*&                                                                     *
+*&---------------------------------------------------------------------*
+*& Autor       : JONATHAN SETTENY                                      *
+*& Fecha       : 13.08.2013                                            *
+*&---------------------------------------------------------------------*
+*& Titulo      : Libro Mayor                                           *
+*& Empresa     : RENNER SAYERLACK CHILE S.A                            *
+*& Descripcion : Emision del Libro Mayor ALV y SmartForms              *
+*&---------------------------------------------------------------------*
+REPORT  ZFI_CC_LIBMAY.
+
+*=====================================================*
+* DECLARACION DE TYPE-POOLS                           *
+*=====================================================*
+TYPE-POOLS: SLIS.
+
+* =================
+* = TABLAS        *
+* =================
+TABLES: T001Z.
+TABLES: T000.
+TABLES: T001.
+TABLES: ADRC.
+TABLES: FAGLFLEXT.
+TABLES: FAGLFLEXA.
+TABLES: SKAT.
+
+*=====================================================*
+* DECLARACION DE VARIABLES GLOBALES                   *
+*=====================================================*
+*DATA:
+*      I_FIELDCAT          TYPE SLIS_T_FIELDCAT_ALV,
+*      E_FIELDCAT          TYPE SLIS_T_FIELDCAT_ALV,
+*      GS_LAYOUT           TYPE SLIS_LAYOUT_ALV.
+
+DATA: G_FIELDCAT          TYPE LVC_T_FCAT,
+      L_FIELDCAT          TYPE LVC_S_FCAT,
+      GS_LAYOUT           TYPE LVC_S_LAYO.
+
+DATA: LF_FORMNAME         TYPE TDSFNAME,
+      LF_FM_NAME          TYPE RS38L_FNAM.
+
+DATA: G_PROGRAM           TYPE SY-REPID,
+      G_TITULO            TYPE SY-TITLE,
+      G_REPID             TYPE SY-REPID,
+      GT_LIST_TOP_OF_PAGE TYPE SLIS_T_LISTHEADER,
+      GT_LIST_END_OF_LIST TYPE SLIS_T_LISTHEADER,
+      I_EVENTS            TYPE SLIS_T_EVENT,
+      GT_SORT             TYPE SLIS_T_SORTINFO_ALV,
+      G_USER_COMMAND      TYPE SLIS_FORMNAME
+                         VALUE 'USER_COMMAND'.
+
+DATA: LEEVAL(1)           TYPE C,
+      LEYO(1)             TYPE C,
+      CUENTA(10)          TYPE C,
+      TAXNR               TYPE T001Z-PAVAL,
+      Z_RESP              TYPE T001Z-PAVAL,
+      Z_RRES              TYPE T001Z-PAVAL,
+      GIRO                TYPE ADRC-NAME2,
+      VBUTXT              TYPE T001-BUTXT,
+      VWAERS              TYPE T001-WAERS,
+      VMWAER              TYPE T000-MWAER,
+      VADRNR              TYPE T001-ADRNR,
+      VKTOPL              TYPE T001-KTOPL,
+      VCITY1              TYPE ADRC-CITY1,
+      VSTREET             TYPE ADRC-STREET,
+      VTEL_NUMBER         TYPE ADRC-TEL_NUMBER.
+
+*=====================================================*
+* DECLARACION DE TYPES                                *
+*=====================================================*
+
+TYPES : BEGIN OF TI_FAGLFLEXA.
+        INCLUDE STRUCTURE FAGLFLEXA.
+TYPES : END OF TI_FAGLFLEXA.
+
+TYPES : BEGIN OF TI_SKAT.
+        INCLUDE STRUCTURE SKAT.
+TYPES : END OF TI_SKAT.
+
+TYPES : BEGIN OF TI_FAGLFLEXT.
+        INCLUDE STRUCTURE FAGLFLEXT.
+TYPES : END OF TI_FAGLFLEXT.
+
+*=====================================================*
+TYPES : BEGIN OF TI_ALVDETALLE.
+        INCLUDE STRUCTURE ZFI_LIBMAY.
+TYPES : END OF TI_ALVDETALLE.
+
+TYPES : BEGIN OF TI_ALVCTA,
+    ZRACCT                TYPE FAGLFLEXT-RACCT,
+    ZDATOS(1)             TYPE C,
+  END OF TI_ALVCTA.
+
+TYPES : BEGIN OF TI_ALVDET.
+        INCLUDE STRUCTURE ZFI_LIBMAY.
+TYPES : END OF TI_ALVDET.
+
+*=====================================================*
+* DECLARACION DE TABLAS INTERNAS                      *
+*=====================================================*
+
+DATA:
+      T_FAGLFLEXA         TYPE STANDARD TABLE OF
+      TI_FAGLFLEXA        WITH HEADER LINE,
+
+      TI_SKAT             TYPE STANDARD TABLE OF
+      SKAT                WITH HEADER LINE,
+
+      T_FAGLFLEXT         TYPE STANDARD TABLE OF
+      TI_FAGLFLEXT        WITH HEADER LINE.
+
+DATA:
+      T_ALVDETALLE        TYPE STANDARD TABLE OF
+      TI_ALVDETALLE       WITH HEADER LINE.
+
+DATA:
+      T_ALVDET            TYPE STANDARD TABLE OF
+      TI_ALVDET           WITH HEADER LINE.
+
+DATA:
+      T_ALVCTA            TYPE STANDARD TABLE OF
+      TI_ALVCTA           WITH HEADER LINE.
+*=====================================================*
+* DECLARACION DE FIELD-SYMBOLS                        *
+*=====================================================*
+
+
+*=====================================================*
+* SELECTION-SCREEN                                    *
+*=====================================================*
+SELECTION-SCREEN BEGIN OF BLOCK b1 WITH FRAME TITLE text-010.
+PARAMETERS:     PBUKRS LIKE FAGLFLEXA-RBUKRS  OBLIGATORY DEFAULT 'A001'.
+SELECT-OPTIONS: PRACCT FOR  FAGLFLEXA-RACCT.
+SELECTION-SCREEN END OF BLOCK b1.
+
+SELECTION-SCREEN BEGIN OF BLOCK b2 WITH FRAME TITLE text-020.
+PARAMETERS:     PRYEAR LIKE FAGLFLEXA-RYEAR OBLIGATORY DEFAULT SY-DATUM+0(4).
+PARAMETERS:     PRLDNR LIKE FAGLFLEXA-RLDNR OBLIGATORY DEFAULT '0L'..
+SELECTION-SCREEN END OF BLOCK b2.
+
+SELECTION-SCREEN BEGIN OF BLOCK b3 WITH FRAME TITLE text-030.
+PARAMETERS:     PPOPER  LIKE FAGLFLEXA-POPER   OBLIGATORY DEFAULT SY-DATUM+4(2).
+PARAMETERS:     PCTASMOV  AS CHECKBOX DEFAULT ' '.
+SELECTION-SCREEN END OF BLOCK b3.
+
+SELECTION-SCREEN BEGIN OF BLOCK b4 WITH FRAME TITLE text-040.
+PARAMETERS: PIMPML RADIOBUTTON GROUP gr1 USER-COMMAND ACT DEFAULT 'X'.
+PARAMETERS: PIMPMG RADIOBUTTON GROUP gr1.
+SELECTION-SCREEN END OF BLOCK b4.
+
+SELECTION-SCREEN BEGIN OF BLOCK b5 WITH FRAME TITLE text-050.
+PARAMETERS:     SEMIDEF   AS CHECKBOX DEFAULT ' '.
+SELECTION-SCREEN END OF BLOCK b5.
+
+*=====================================================*
+* AT SELECTION-SCREEN                                 *
+*=====================================================*
+
+*=====================================================*
+* START-OF-SELECTION *
+*=====================================================*
+AUTHORITY-CHECK OBJECT 'S_TCODE'
+ID 'TCD' FIELD 'ZFI_LMAYOR'.
+
+LEEVAL = 'N'.
+IF SY-SUBRC NE 0.
+  MESSAGE E001(ZCLAS_MENSAJE) WITH 'Falta autorización para transacción ZFI_LMAYOR'.
+ELSE.
+  IF PPOPER < 1 or PPOPER > 12.
+    MESSAGE 'Periodo debe ser Mayor a 1 y Menor a 12' TYPE 'I'.
+  ELSE.
+    PERFORM LEE-TABLAS          USING LEEVAL.             " LEE TABLAS T001Z Y T001
+    IF LEEVAL = 'S'.
+      PERFORM PROCESO_PRINCIPAL  USING LEEVAL.
+    ELSE.
+      MESSAGE 'No hay información que cumpla la selección' TYPE 'I'.
+    ENDIF.
+  ENDIF.
+ENDIF.
+
+END-OF-SELECTION.
+*-------------------------------------
+  PERFORM TERMINO-PROCESO.
+
+
+
+
+
+
+**********************************************************************
+* FORM    :  LEE-TABLAS
+* Created :  06.07.2010 17:19:46
+**********************************************************************
+FORM LEE-TABLAS USING LEEVAL.
+  LEEVAL = 'S'.
+
+  SELECT SINGLE PAVAL INTO TAXNR
+    FROM T001Z
+   WHERE BUKRS = PBUKRS    AND
+         PARTY = 'TAXNR'.
+
+  SELECT SINGLE PAVAL INTO Z_RESP
+    FROM T001Z
+   WHERE BUKRS = PBUKRS    AND
+         PARTY = 'Z_RESP'.
+
+  SELECT SINGLE PAVAL INTO Z_RRES
+    FROM T001Z
+   WHERE BUKRS = PBUKRS    AND
+         PARTY = 'Z_RRES'.
+
+  SELECT SINGLE BUTXT WAERS KTOPL ADRNR INTO (VBUTXT, VWAERS, VKTOPL, VADRNR)
+    FROM T001
+   WHERE BUKRS = PBUKRS.
+
+  SELECT SINGLE MWAER INTO (VMWAER)
+    FROM T000
+   WHERE mandt = sy-mandt.
+
+  SELECT SINGLE CITY1 STREET TEL_NUMBER NAME2 INTO (VCITY1, VSTREET, VTEL_NUMBER, GIRO)
+    FROM ADRC
+   WHERE ADDRNUMBER = VADRNR.
+
+  IF  sy-subrc <> 0.
+    LEEVAL = 'N'.
+  ENDIF.
+ENDFORM. "LEE-TABLAS
+
+**********************************************************************
+* FORM    :  PROCESO_PRINCIPAL
+* Created :  07.07.2010 14:55:18
+**********************************************************************
+FORM PROCESO_PRINCIPAL  USING LEEVAL.
+  LEEVAL = 'S'.
+
+  SELECT *
+    INTO TABLE TI_SKAT
+    FROM SKAT
+    WHERE SPRAS = 'S'
+      AND KTOPL = VKTOPL        "'PCTA'
+      AND SAKNR IN PRACCT.
+
+  SELECT *
+    INTO TABLE T_FAGLFLEXT
+    FROM FAGLFLEXT FOR ALL ENTRIES IN TI_SKAT
+    WHERE  RBUKRS EQ PBUKRS                              " SOCIEDAD
+      AND  RYEAR  EQ PRYEAR                              " EJERCICION (AÑO)
+      AND  RACCT  EQ TI_SKAT-SAKNR                              " CUENTA
+      AND  RLDNR  EQ PRLDNR.                             " LEDGER
+
+  SELECT  *
+     INTO TABLE T_FAGLFLEXA
+     FROM  FAGLFLEXA  FOR ALL ENTRIES IN TI_SKAT
+    WHERE  RBUKRS EQ PBUKRS                              " SOCIEDAD
+      AND  RYEAR  EQ PRYEAR                              " EJERCICION (AÑO)
+      AND  POPER  EQ PPOPER                              " PERIODO (MES)
+      AND  RACCT  EQ TI_SKAT-SAKNR                               " CUENTA
+      AND  RLDNR  EQ PRLDNR.                             " LEDGER
+
+  IF  sy-subrc <> 0.
+    LEEVAL = 'N'.
+  ENDIF.
+
+ENDFORM. "PROCESO_PRINCIPAL
+
+**********************************************************************
+* FORM    :  TERMINO-PROCESO
+* Created :  08.07.2010 10:21:02
+**********************************************************************
+FORM TERMINO-PROCESO.
+  PERFORM INIT_LAYOUT.
+  PERFORM LLENA_DETALLE.
+  PERFORM FORMATEAR_DATOS_ALV_DET.    " USING I_FIELDCAT[].
+  PERFORM F_FORMATO_PAGE CHANGING GT_LIST_TOP_OF_PAGE.
+  PERFORM F_FORMATEAR_EVENTOS_ALV USING I_EVENTS[].
+  PERFORM F_GENERAR_LISTA_ALV.
+ENDFORM. "TERMINO-PROCESO.
+
+**********************************************************************
+* FORM    :  LLENA_DETALLE.
+* Created :  12.07.2010 10:59:04
+**********************************************************************
+FORM LLENA_DETALLE.
+  REFRESH T_ALVCTA.
+  REFRESH T_ALVDETALLE.
+
+  LOOP AT TI_SKAT.
+
+    LEYO  = 'N'.
+
+    PERFORM LEE_SALDO_INICIAL USING PPOPER TI_SKAT-SAKNR.
+
+    PERFORM LLENA_ALVDETALLE  USING TI_SKAT-SAKNR.
+
+    CLEAR   T_ALVCTA.
+    T_ALVCTA-ZRACCT  = TI_SKAT-SAKNR.
+    T_ALVCTA-ZDATOS  = LEYO.
+    APPEND  T_ALVCTA.
+
+  ENDLOOP.
+
+  SORT T_ALVCTA     BY ZRACCT.
+
+  DATA: VDEBE                 TYPE FAGLFLEXA-HSL.
+  DATA: VHABER                TYPE FAGLFLEXA-HSL.
+  DATA: VSALDO                TYPE FAGLFLEXA-HSL.
+  DATA: VRACCT                TYPE FAGLFLEXT-RACCT.
+
+* borrar informacion si no se imprime todas las cuentas
+  IF PCTASMOV = ' '.    " NO se Incluyen todas las cuentas
+    LOOP AT T_ALVCTA WHERE ZDATOS = 'N'.
+      VRACCT = T_ALVCTA-ZRACCT.
+      LOOP AT T_ALVDETALLE WHERE ZRACCT   = VRACCT.
+        DELETE T_ALVDETALLE.
+      ENDLOOP.
+      DELETE T_ALVCTA.
+    ENDLOOP.
+  ENDIF.
+
+  SORT T_ALVCTA     BY ZRACCT.
+  T_ALVDET[] =  T_ALVDETALLE[].
+
+  VRACCT = 0.
+  LOOP AT T_ALVCTA.
+    VRACCT = T_ALVCTA-ZRACCT.
+    VDEBE  = 0.
+    VHABER = 0.
+    VSALDO = 0.
+
+    LOOP AT T_ALVDET WHERE ZRACCT = VRACCT
+                       AND ZCLAVE1  = '2'.
+      VDEBE      = VDEBE   + T_ALVDET-ZDEBE.
+      VHABER     = VHABER  + T_ALVDET-ZHABER.
+    ENDLOOP.
+
+    LOOP AT T_ALVDETALLE WHERE ZRACCT   = VRACCT
+                           AND ZCLAVE1  = '3'.
+      T_ALVDETALLE-ZDEBE      = VDEBE.
+      T_ALVDETALLE-ZHABER     = VHABER.
+      T_ALVDETALLE-ZSLDFIN    = T_ALVDETALLE-ZSLDINI + ( VDEBE + VHABER ).
+      MODIFY T_ALVDETALLE.
+    ENDLOOP.
+
+  ENDLOOP.
+
+  SORT T_ALVDETALLE BY ZRACCT ZCLAVE1 ZBUDAT.
+
+ENDFORM. "LLENA_DETALLE.
+
+
+**********************************************************************
+* FORM    :  LEE_SALDO_INICIAL
+* Created :  08.07.2010 12:32:56
+**********************************************************************
+FORM LEE_SALDO_INICIAL USING  MES CTA.
+
+  DATA: VSLDINI               TYPE FAGLFLEXT-HSLVT.
+  DATA: VSLD01                TYPE FAGLFLEXA-HSL.
+  DATA: VSLD02                TYPE FAGLFLEXA-HSL.
+  DATA: VSLD03                TYPE FAGLFLEXA-HSL.
+  DATA: VSLD04                TYPE FAGLFLEXA-HSL.
+  DATA: VSLD05                TYPE FAGLFLEXA-HSL.
+  DATA: VSLD06                TYPE FAGLFLEXA-HSL.
+  DATA: VSLD07                TYPE FAGLFLEXA-HSL.
+  DATA: VSLD08                TYPE FAGLFLEXA-HSL.
+  DATA: VSLD09                TYPE FAGLFLEXA-HSL.
+  DATA: VSLD10                TYPE FAGLFLEXA-HSL.
+  DATA: VSLD11                TYPE FAGLFLEXA-HSL.
+  DATA: VSLD12                TYPE FAGLFLEXA-HSL.
+  DATA: VSLD                  TYPE FAGLFLEXA-HSL.
+
+  VSLDINI = 0.
+  VSLD01  = 0.
+  VSLD02  = 0.
+  VSLD03  = 0.
+  VSLD04  = 0.
+  VSLD05  = 0.
+  VSLD06  = 0.
+  VSLD07  = 0.
+  VSLD08  = 0.
+  VSLD09  = 0.
+  VSLD10  = 0.
+  VSLD11  = 0.
+  VSLD12  = 0.
+  VSLD    = 0.
+
+  SORT T_FAGLFLEXT BY RACCT.
+
+  LOOP AT T_FAGLFLEXT WHERE RACCT  = CTA.
+    LEYO = 'S'.
+    IF PIMPML   = 'X'.
+
+      IF MES    = 1.
+        VSLDINI   = VSLDINI   + T_FAGLFLEXT-HSLVT.
+        VSLD01  = 0.      "VSLD01  + T_FAGLFLEXT-HSL01.
+      ENDIF.
+      IF MES    = 2.
+        VSLDINI   = VSLDINI   + T_FAGLFLEXT-HSLVT.
+        VSLD01  = VSLD01  + T_FAGLFLEXT-HSL01.
+      ENDIF.
+      IF MES    = 3.
+        VSLDINI   = VSLDINI   + T_FAGLFLEXT-HSLVT.
+        VSLD01  = VSLD01  + T_FAGLFLEXT-HSL01.
+        VSLD02  = VSLD02  + T_FAGLFLEXT-HSL02.
+      ENDIF.
+      IF MES    = 4.
+        VSLDINI   = VSLDINI   + T_FAGLFLEXT-HSLVT.
+        VSLD01  = VSLD01  + T_FAGLFLEXT-HSL01.
+        VSLD02  = VSLD02  + T_FAGLFLEXT-HSL02.
+        VSLD03  = VSLD03  + T_FAGLFLEXT-HSL03.
+      ENDIF.
+      IF MES    = 5.
+        VSLDINI   = VSLDINI   + T_FAGLFLEXT-HSLVT.
+        VSLD01  = VSLD01  + T_FAGLFLEXT-HSL01.
+        VSLD02  = VSLD02  + T_FAGLFLEXT-HSL02.
+        VSLD03  = VSLD03  + T_FAGLFLEXT-HSL03.
+        VSLD04  = VSLD04  + T_FAGLFLEXT-HSL04.
+      ENDIF.
+      IF MES    = 6.
+        VSLDINI   = VSLDINI   + T_FAGLFLEXT-HSLVT.
+        VSLD01  = VSLD01  + T_FAGLFLEXT-HSL01.
+        VSLD02  = VSLD02  + T_FAGLFLEXT-HSL02.
+        VSLD03  = VSLD03  + T_FAGLFLEXT-HSL03.
+        VSLD04  = VSLD04  + T_FAGLFLEXT-HSL04.
+        VSLD05  = VSLD05  + T_FAGLFLEXT-HSL05.
+      ENDIF.
+      IF MES    = 7.
+        VSLDINI   = VSLDINI   + T_FAGLFLEXT-HSLVT.
+        VSLD01  = VSLD01  + T_FAGLFLEXT-HSL01.
+        VSLD02  = VSLD02  + T_FAGLFLEXT-HSL02.
+        VSLD03  = VSLD03  + T_FAGLFLEXT-HSL03.
+        VSLD04  = VSLD04  + T_FAGLFLEXT-HSL04.
+        VSLD05  = VSLD05  + T_FAGLFLEXT-HSL05.
+        VSLD06  = VSLD06  + T_FAGLFLEXT-HSL06.
+      ENDIF.
+      IF MES    = 8.
+        VSLDINI   = VSLDINI   + T_FAGLFLEXT-HSLVT.
+        VSLD01  = VSLD01  + T_FAGLFLEXT-HSL01.
+        VSLD02  = VSLD02  + T_FAGLFLEXT-HSL02.
+        VSLD03  = VSLD03  + T_FAGLFLEXT-HSL03.
+        VSLD04  = VSLD04  + T_FAGLFLEXT-HSL04.
+        VSLD05  = VSLD05  + T_FAGLFLEXT-HSL05.
+        VSLD06  = VSLD06  + T_FAGLFLEXT-HSL06.
+        VSLD07  = VSLD07  + T_FAGLFLEXT-HSL07.
+      ENDIF.
+      IF MES    = 9.
+        VSLDINI   = VSLDINI   + T_FAGLFLEXT-HSLVT.
+        VSLD01  = VSLD01  + T_FAGLFLEXT-HSL01.
+        VSLD02  = VSLD02  + T_FAGLFLEXT-HSL02.
+        VSLD03  = VSLD03  + T_FAGLFLEXT-HSL03.
+        VSLD04  = VSLD04  + T_FAGLFLEXT-HSL04.
+        VSLD05  = VSLD05  + T_FAGLFLEXT-HSL05.
+        VSLD06  = VSLD06  + T_FAGLFLEXT-HSL06.
+        VSLD07  = VSLD07  + T_FAGLFLEXT-HSL07.
+        VSLD08  = VSLD08  + T_FAGLFLEXT-HSL08.
+      ENDIF.
+      IF MES    = 10.
+        VSLDINI   = VSLDINI   + T_FAGLFLEXT-HSLVT.
+        VSLD01  = VSLD01  + T_FAGLFLEXT-HSL01.
+        VSLD02  = VSLD02  + T_FAGLFLEXT-HSL02.
+        VSLD03  = VSLD03  + T_FAGLFLEXT-HSL03.
+        VSLD04  = VSLD04  + T_FAGLFLEXT-HSL04.
+        VSLD05  = VSLD05  + T_FAGLFLEXT-HSL05.
+        VSLD06  = VSLD06  + T_FAGLFLEXT-HSL06.
+        VSLD07  = VSLD07  + T_FAGLFLEXT-HSL07.
+        VSLD08  = VSLD08  + T_FAGLFLEXT-HSL08.
+        VSLD09  = VSLD09  + T_FAGLFLEXT-HSL09.
+      ENDIF.
+      IF MES    = 11.
+        VSLDINI   = VSLDINI   + T_FAGLFLEXT-HSLVT.
+        VSLD01  = VSLD01  + T_FAGLFLEXT-HSL01.
+        VSLD02  = VSLD02  + T_FAGLFLEXT-HSL02.
+        VSLD03  = VSLD03  + T_FAGLFLEXT-HSL03.
+        VSLD04  = VSLD04  + T_FAGLFLEXT-HSL04.
+        VSLD05  = VSLD05  + T_FAGLFLEXT-HSL05.
+        VSLD06  = VSLD06  + T_FAGLFLEXT-HSL06.
+        VSLD07  = VSLD07  + T_FAGLFLEXT-HSL07.
+        VSLD08  = VSLD08  + T_FAGLFLEXT-HSL08.
+        VSLD09  = VSLD09  + T_FAGLFLEXT-HSL09.
+        VSLD10  = VSLD10  + T_FAGLFLEXT-HSL10.
+      ENDIF.
+      IF MES    = 12.
+        VSLDINI   = VSLDINI   + T_FAGLFLEXT-HSLVT.
+        VSLD01  = VSLD01  + T_FAGLFLEXT-HSL01.
+        VSLD02  = VSLD02  + T_FAGLFLEXT-HSL02.
+        VSLD03  = VSLD03  + T_FAGLFLEXT-HSL03.
+        VSLD04  = VSLD04  + T_FAGLFLEXT-HSL04.
+        VSLD05  = VSLD05  + T_FAGLFLEXT-HSL05.
+        VSLD06  = VSLD06  + T_FAGLFLEXT-HSL06.
+        VSLD07  = VSLD07  + T_FAGLFLEXT-HSL07.
+        VSLD08  = VSLD08  + T_FAGLFLEXT-HSL08.
+        VSLD09  = VSLD09  + T_FAGLFLEXT-HSL09.
+        VSLD10  = VSLD10  + T_FAGLFLEXT-HSL10.
+        VSLD11  = VSLD11  + T_FAGLFLEXT-HSL11.
+        VSLD    = VSLD    + T_FAGLFLEXT-HSL13 + T_FAGLFLEXT-HSL14 + T_FAGLFLEXT-HSL15 + T_FAGLFLEXT-HSL16.
+      ENDIF.
+    ENDIF.
+
+    IF PIMPMG = 'X'.
+      IF MES    = 1.
+        VSLDINI   = VSLDINI   + T_FAGLFLEXT-KSLVT.
+        VSLD01  = 0.      "VSLD01  + T_FAGLFLEXT-KSL01.
+      ENDIF.
+      IF MES    = 2.
+        VSLDINI   = VSLDINI   + T_FAGLFLEXT-KSLVT.
+        VSLD01  = VSLD01  + T_FAGLFLEXT-KSL01.
+      ENDIF.
+      IF MES    = 3.
+        VSLDINI   = VSLDINI   + T_FAGLFLEXT-KSLVT.
+        VSLD01  = VSLD01  + T_FAGLFLEXT-KSL01.
+        VSLD02  = VSLD02  + T_FAGLFLEXT-KSL02.
+      ENDIF.
+      IF MES    = 4.
+        VSLDINI   = VSLDINI   + T_FAGLFLEXT-KSLVT.
+        VSLD01  = VSLD01  + T_FAGLFLEXT-KSL01.
+        VSLD02  = VSLD02  + T_FAGLFLEXT-KSL02.
+        VSLD03  = VSLD03  + T_FAGLFLEXT-KSL03.
+      ENDIF.
+      IF MES    = 5.
+        VSLDINI   = VSLDINI   + T_FAGLFLEXT-KSLVT.
+        VSLD01  = VSLD01  + T_FAGLFLEXT-KSL01.
+        VSLD02  = VSLD02  + T_FAGLFLEXT-KSL02.
+        VSLD03  = VSLD03  + T_FAGLFLEXT-KSL03.
+        VSLD04  = VSLD04  + T_FAGLFLEXT-KSL04.
+      ENDIF.
+      IF MES    = 6.
+        VSLDINI   = VSLDINI   + T_FAGLFLEXT-KSLVT.
+        VSLD01  = VSLD01  + T_FAGLFLEXT-KSL01.
+        VSLD02  = VSLD02  + T_FAGLFLEXT-KSL02.
+        VSLD03  = VSLD03  + T_FAGLFLEXT-KSL03.
+        VSLD04  = VSLD04  + T_FAGLFLEXT-KSL04.
+        VSLD05  = VSLD05  + T_FAGLFLEXT-KSL05.
+      ENDIF.
+      IF MES    = 7.
+        VSLDINI   = VSLDINI   + T_FAGLFLEXT-KSLVT.
+        VSLD01  = VSLD01  + T_FAGLFLEXT-KSL01.
+        VSLD02  = VSLD02  + T_FAGLFLEXT-KSL02.
+        VSLD03  = VSLD03  + T_FAGLFLEXT-KSL03.
+        VSLD04  = VSLD04  + T_FAGLFLEXT-KSL04.
+        VSLD05  = VSLD05  + T_FAGLFLEXT-KSL05.
+        VSLD06  = VSLD06  + T_FAGLFLEXT-KSL06.
+      ENDIF.
+      IF MES    = 8.
+        VSLDINI   = VSLDINI   + T_FAGLFLEXT-KSLVT.
+        VSLD01  = VSLD01  + T_FAGLFLEXT-KSL01.
+        VSLD02  = VSLD02  + T_FAGLFLEXT-KSL02.
+        VSLD03  = VSLD03  + T_FAGLFLEXT-KSL03.
+        VSLD04  = VSLD04  + T_FAGLFLEXT-KSL04.
+        VSLD05  = VSLD05  + T_FAGLFLEXT-KSL05.
+        VSLD06  = VSLD06  + T_FAGLFLEXT-KSL06.
+        VSLD07  = VSLD07  + T_FAGLFLEXT-KSL07.
+      ENDIF.
+      IF MES    = 9.
+        VSLDINI   = VSLDINI   + T_FAGLFLEXT-KSLVT.
+        VSLD01  = VSLD01  + T_FAGLFLEXT-KSL01.
+        VSLD02  = VSLD02  + T_FAGLFLEXT-KSL02.
+        VSLD03  = VSLD03  + T_FAGLFLEXT-KSL03.
+        VSLD04  = VSLD04  + T_FAGLFLEXT-KSL04.
+        VSLD05  = VSLD05  + T_FAGLFLEXT-KSL05.
+        VSLD06  = VSLD06  + T_FAGLFLEXT-KSL06.
+        VSLD07  = VSLD07  + T_FAGLFLEXT-KSL07.
+        VSLD08  = VSLD08  + T_FAGLFLEXT-KSL08.
+      ENDIF.
+      IF MES    = 10.
+        VSLDINI   = VSLDINI   + T_FAGLFLEXT-KSLVT.
+        VSLD01  = VSLD01  + T_FAGLFLEXT-KSL01.
+        VSLD02  = VSLD02  + T_FAGLFLEXT-KSL02.
+        VSLD03  = VSLD03  + T_FAGLFLEXT-KSL03.
+        VSLD04  = VSLD04  + T_FAGLFLEXT-KSL04.
+        VSLD05  = VSLD05  + T_FAGLFLEXT-KSL05.
+        VSLD06  = VSLD06  + T_FAGLFLEXT-KSL06.
+        VSLD07  = VSLD07  + T_FAGLFLEXT-KSL07.
+        VSLD08  = VSLD08  + T_FAGLFLEXT-KSL08.
+        VSLD09  = VSLD09  + T_FAGLFLEXT-KSL09.
+      ENDIF.
+      IF MES    = 11.
+        VSLDINI   = VSLDINI   + T_FAGLFLEXT-KSLVT.
+        VSLD01  = VSLD01  + T_FAGLFLEXT-KSL01.
+        VSLD02  = VSLD02  + T_FAGLFLEXT-KSL02.
+        VSLD03  = VSLD03  + T_FAGLFLEXT-KSL03.
+        VSLD04  = VSLD04  + T_FAGLFLEXT-KSL04.
+        VSLD05  = VSLD05  + T_FAGLFLEXT-KSL05.
+        VSLD06  = VSLD06  + T_FAGLFLEXT-KSL06.
+        VSLD07  = VSLD07  + T_FAGLFLEXT-KSL07.
+        VSLD08  = VSLD08  + T_FAGLFLEXT-KSL08.
+        VSLD09  = VSLD09  + T_FAGLFLEXT-KSL09.
+        VSLD10  = VSLD10  + T_FAGLFLEXT-KSL10.
+      ENDIF.
+      IF MES    = 12.
+        VSLDINI   = VSLDINI   + T_FAGLFLEXT-KSLVT.
+        VSLD01  = VSLD01  + T_FAGLFLEXT-KSL01.
+        VSLD02  = VSLD02  + T_FAGLFLEXT-KSL02.
+        VSLD03  = VSLD03  + T_FAGLFLEXT-KSL03.
+        VSLD04  = VSLD04  + T_FAGLFLEXT-KSL04.
+        VSLD05  = VSLD05  + T_FAGLFLEXT-KSL05.
+        VSLD06  = VSLD06  + T_FAGLFLEXT-KSL06.
+        VSLD07  = VSLD07  + T_FAGLFLEXT-KSL07.
+        VSLD08  = VSLD08  + T_FAGLFLEXT-KSL08.
+        VSLD09  = VSLD09  + T_FAGLFLEXT-KSL09.
+        VSLD10  = VSLD10  + T_FAGLFLEXT-KSL10.
+        VSLD11  = VSLD11  + T_FAGLFLEXT-KSL11.
+        VSLD    = VSLD    + T_FAGLFLEXT-KSL13 + T_FAGLFLEXT-KSL14 + T_FAGLFLEXT-KSL15 + T_FAGLFLEXT-KSL16.
+      ENDIF.
+    ENDIF.
+
+  ENDLOOP.
+
+  DATA: VSLD1SEM              TYPE FAGLFLEXA-HSL.
+  DATA: VSLD2SEM              TYPE FAGLFLEXA-HSL.
+
+  VSLD1SEM = 0.
+  VSLD2SEM = 0.
+
+  CLEAR T_ALVDETALLE.
+  T_ALVDETALLE-ZCLAVE1    = '3'.
+  T_ALVDETALLE-ZCLAVE2    = 'A'.
+  T_ALVDETALLE-COLOR      = 'C311'.
+  T_ALVDETALLE-ZRACCT     = CTA.
+  READ TABLE TI_SKAT WITH KEY SAKNR = CTA.
+  T_ALVDETALLE-ZTXT20     = TI_SKAT-TXT20.
+  VSLD1SEM = VSLD01 + VSLD02 + VSLD03 + VSLD04 + VSLD05 + VSLD06.
+  VSLD2SEM = VSLD07 + VSLD08 + VSLD09 + VSLD10 + VSLD11 + VSLD12.
+  T_ALVDETALLE-ZSLDINI    = VSLDINI + VSLD1SEM + VSLD2SEM + VSLD.
+  T_ALVDETALLE-ZDEBE      = 0.
+  T_ALVDETALLE-ZHABER     = 0.
+  T_ALVDETALLE-ZSLDFIN    = 0.
+  IF PIMPML = 'X'.
+    T_ALVDETALLE-ZMONEDA  = VWAERS.
+  ELSE.
+    T_ALVDETALLE-ZMONEDA  = VMWAER.
+  ENDIF.
+  T_ALVDETALLE-ZWAERS     = VWAERS.
+  T_ALVDETALLE-ZMWAER     = VMWAER.
+  APPEND T_ALVDETALLE.
+
+  VSLD1SEM = 0.
+  VSLD2SEM = 0.
+
+  CLEAR T_ALVDETALLE.
+  T_ALVDETALLE-ZCLAVE1    = '1'.
+  T_ALVDETALLE-ZCLAVE2    = ' '.
+  T_ALVDETALLE-COLOR      = 'C711'.
+  T_ALVDETALLE-ZRACCT     = CTA.
+  READ TABLE TI_SKAT WITH KEY SAKNR = CTA.
+  T_ALVDETALLE-ZTXT20     = TI_SKAT-TXT20.
+  VSLD1SEM = VSLD01 + VSLD02 + VSLD03 + VSLD04 + VSLD05 + VSLD06.
+  VSLD2SEM = VSLD07 + VSLD08 + VSLD09 + VSLD10 + VSLD11 + VSLD12.
+  T_ALVDETALLE-ZSLDINI    = VSLDINI + VSLD1SEM + VSLD2SEM + VSLD.
+  T_ALVDETALLE-ZDEBE      = 0.
+  T_ALVDETALLE-ZHABER     = 0.
+  T_ALVDETALLE-ZSLDFIN    = 0.
+  IF PIMPML = 'X'.
+    T_ALVDETALLE-ZMONEDA  = VWAERS.
+  ELSE.
+    T_ALVDETALLE-ZMONEDA  = VMWAER.
+  ENDIF.
+  T_ALVDETALLE-ZWAERS     = VWAERS.
+  T_ALVDETALLE-ZMWAER     = VMWAER.
+  APPEND T_ALVDETALLE.
+
+ENDFORM. "LEE_SALDO_INICIAL
+
+**********************************************************************
+* FORM    :  LLENA_ALVDETALLE
+* Created :  08.07.2010 10:22:41
+**********************************************************************
+FORM LLENA_ALVDETALLE  USING CTA.
+
+  DATA: VRACCT                TYPE FAGLFLEXT-RACCT, "CUENTA CONTABLE
+        VSW(1)                TYPE C.
+
+  VSW = '0'.
+
+  SORT T_FAGLFLEXA BY RACCT.
+
+  LOOP AT T_FAGLFLEXA WHERE RACCT  = CTA.
+    LEYO  = 'S'.
+    CLEAR T_ALVDETALLE.
+    T_ALVDETALLE-ZCLAVE1    = '2'.
+    T_ALVDETALLE-ZCLAVE2    = 'B'.
+    T_ALVDETALLE-COLOR      = ''.
+    T_ALVDETALLE-ZRACCT     = T_FAGLFLEXA-RACCT.
+    READ TABLE TI_SKAT WITH KEY SAKNR = T_FAGLFLEXA-RACCT.
+    T_ALVDETALLE-ZTXT20   = TI_SKAT-TXT20.
+    T_ALVDETALLE-ZSLDINI    = 0.
+    T_ALVDETALLE-ZDOCNR     = T_FAGLFLEXA-DOCNR.
+    T_ALVDETALLE-ZBUDAT     = T_FAGLFLEXA-BUDAT.
+    T_ALVDETALLE-ZDEBE      = 0.
+    T_ALVDETALLE-ZHABER     = 0.
+    IF PIMPML = 'X'.
+      IF T_FAGLFLEXA-DRCRK = 'S'.
+        T_ALVDETALLE-ZDEBE      = T_FAGLFLEXA-HSL.
+        T_ALVDETALLE-ZHABER     = 0.
+      ELSE.
+        T_ALVDETALLE-ZDEBE      = 0.
+        T_ALVDETALLE-ZHABER     = T_FAGLFLEXA-HSL.
+      ENDIF.
+    ENDIF.
+    IF PIMPMG = 'X'.
+      IF T_FAGLFLEXA-DRCRK        = 'S'.
+        T_ALVDETALLE-ZDEBE      = T_FAGLFLEXA-KSL.
+        T_ALVDETALLE-ZHABER     = 0.
+      ELSE.
+        T_ALVDETALLE-ZDEBE      = 0.
+        T_ALVDETALLE-ZHABER     = T_FAGLFLEXA-KSL.
+      ENDIF.
+    ENDIF.
+    T_ALVDETALLE-ZSLDFIN    = 0.
+    IF PIMPML = 'X'.
+      T_ALVDETALLE-ZMONEDA  = VWAERS.
+    ELSE.
+      T_ALVDETALLE-ZMONEDA  = VMWAER.
+    ENDIF.
+    T_ALVDETALLE-ZWAERS     = VWAERS.
+    T_ALVDETALLE-ZMWAER     = VMWAER.
+    APPEND T_ALVDETALLE.
+
+  ENDLOOP.
+
+  SORT T_ALVDETALLE BY ZRACCT ZCLAVE1.
+
+ENDFORM. "LLENA_ALVDETALLE
+
+**********************************************************************
+* FORM    :  INIT_LAYOUT.
+* Created :  21.06.2010 16:03:29
+**********************************************************************
+FORM INIT_LAYOUT.
+  GS_LAYOUT-ZEBRA        = 'X'.
+  GS_LAYOUT-CWIDTH_OPT   = 'X'.
+  GS_LAYOUT-INFO_FNAME   = 'COLOR'.
+  GS_LAYOUT-STYLEFNAME   = 'CELLSTYLES'.
+ENDFORM. "INIT_LAYOUT.
+
+**********************************************************************
+* FORM    :  FORMATEAR_DATOS_ALV_DET
+* Created :  21.06.2010 16:03:42
+**********************************************************************
+FORM FORMATEAR_DATOS_ALV_DET.
+
+  CLEAR:    G_FIELDCAT.
+  REFRESH:  G_FIELDCAT.
+
+  CLEAR L_FIELDCAT.
+  L_FIELDCAT-TABNAME    = 'T_ALVDETALLE'.
+  L_FIELDCAT-FIELDNAME  = 'ZRACCT'.
+  L_FIELDCAT-SCRTEXT_M  = 'Cuenta Mayor'.
+  L_FIELDCAT-REF_FIELD  = 'FAGLFLEXA'.
+  L_FIELDCAT-REF_TABLE  = 'RACCT'.
+  L_FIELDCAT-OUTPUTLEN  = 12.
+  APPEND L_FIELDCAT TO G_FIELDCAT.
+
+  CLEAR L_FIELDCAT.
+  L_FIELDCAT-TABNAME    = 'T_ALVDETALLE'.
+  L_FIELDCAT-FIELDNAME  = 'ZTXT20'.
+  L_FIELDCAT-SCRTEXT_M  = 'Descripción Cuenta'.
+  APPEND L_FIELDCAT TO G_FIELDCAT.
+
+  CLEAR L_FIELDCAT.
+  L_FIELDCAT-TABNAME    = 'T_ALVDETALLE'.
+  L_FIELDCAT-FIELDNAME  = 'ZSLDINI'.
+  L_FIELDCAT-SCRTEXT_M  = 'Saldo Inicial'.
+  L_FIELDCAT-NO_ZERO    = 'X'.
+  L_FIELDCAT-JUST       = 'R'.
+  L_FIELDCAT-OUTPUTLEN  = 16.
+  IF PIMPML = 'X'.
+    L_FIELDCAT-CFIELDNAME    = 'ZWAERS'.
+  ELSE.
+    L_FIELDCAT-CFIELDNAME    = 'ZMWAER'.
+  ENDIF.
+  APPEND L_FIELDCAT TO G_FIELDCAT.
+
+  CLEAR L_FIELDCAT.
+  L_FIELDCAT-TABNAME    = 'T_ALVDETALLE'.
+  L_FIELDCAT-FIELDNAME  = 'ZDOCNR'.
+  L_FIELDCAT-SCRTEXT_M  = 'Documento'.
+  APPEND L_FIELDCAT TO G_FIELDCAT.
+
+  CLEAR L_FIELDCAT.
+  L_FIELDCAT-TABNAME    = 'T_ALVDETALLE'.
+  L_FIELDCAT-FIELDNAME  = 'ZBUDAT'.
+  L_FIELDCAT-SCRTEXT_M  = 'Fecha'.
+  APPEND L_FIELDCAT TO G_FIELDCAT.
+
+  CLEAR L_FIELDCAT.
+  L_FIELDCAT-TABNAME    = 'T_ALVDETALLE'.
+  L_FIELDCAT-FIELDNAME  = 'ZDEBE'.
+  L_FIELDCAT-SCRTEXT_M  = '        Debe'.
+  L_FIELDCAT-NO_ZERO    = 'X'.
+  L_FIELDCAT-JUST       = 'R'.
+  L_FIELDCAT-OUTPUTLEN  = 16.
+  IF PIMPML = 'X'.
+    L_FIELDCAT-CFIELDNAME    = 'ZWAERS'.
+  ELSE.
+    L_FIELDCAT-CFIELDNAME    = 'ZMWAER'.
+  ENDIF.
+  APPEND L_FIELDCAT TO G_FIELDCAT.
+
+  CLEAR L_FIELDCAT.
+  L_FIELDCAT-TABNAME    = 'T_ALVDETALLE'.
+  L_FIELDCAT-FIELDNAME  = 'ZHABER'.
+  L_FIELDCAT-SCRTEXT_M  = '       Haber'.
+  L_FIELDCAT-NO_ZERO    = 'X'.
+  L_FIELDCAT-JUST       = 'R'.
+  L_FIELDCAT-OUTPUTLEN  = 16.
+  IF PIMPML = 'X'.
+    L_FIELDCAT-CFIELDNAME    = 'ZWAERS'.
+  ELSE.
+    L_FIELDCAT-CFIELDNAME    = 'ZMWAER'.
+  ENDIF.
+  APPEND L_FIELDCAT TO G_FIELDCAT.
+
+  CLEAR L_FIELDCAT.
+  L_FIELDCAT-TABNAME    = 'T_ALVDETALLE'.
+  L_FIELDCAT-FIELDNAME  = 'ZSLDFIN'.
+  L_FIELDCAT-SCRTEXT_M  = '      Saldo'.
+  L_FIELDCAT-NO_ZERO    = 'no_zero'.
+  L_FIELDCAT-JUST       = 'R'.
+  L_FIELDCAT-OUTPUTLEN  = 16.
+  IF PIMPML = 'X'.
+    L_FIELDCAT-CFIELDNAME    = 'ZWAERS'.
+  ELSE.
+    L_FIELDCAT-CFIELDNAME    = 'ZMWAER'.
+  ENDIF.
+  APPEND L_FIELDCAT TO G_FIELDCAT.
+
+
+  CLEAR L_FIELDCAT.
+  L_FIELDCAT-TABNAME    = 'T_ALVDETALLE'.
+  L_FIELDCAT-FIELDNAME  = 'ZMONEDA'.
+  L_FIELDCAT-SCRTEXT_M  = 'Moneda'.
+  APPEND L_FIELDCAT TO G_FIELDCAT.
+
+ENDFORM. "FORMATEAR_DATOS_ALV_DET
+
+**********************************************************************
+* FORM    :  F_FORMATO_PAGE
+* Created :  21.06.2010 16:04:05
+**********************************************************************
+FORM F_FORMATO_PAGE CHANGING
+                              GT_TOP_OF_PAGE TYPE SLIS_T_LISTHEADER.
+
+  DATA: GS_LINE         TYPE SLIS_LISTHEADER.
+
+  DATA:
+        CAMPO1(25)      TYPE C,
+        CAMPO2(25)      TYPE C,
+        CAMPO3(25)      TYPE C,
+        CAMPO4(25)      TYPE C.
+
+  CAMPO1 = 'Sociedad '.
+  CLEAR GS_LINE.
+  GS_LINE-TYP = 'S'.
+  CONCATENATE CAMPO1 ': ' VBUTXT  INTO GS_LINE-INFO RESPECTING BLANKS.
+  APPEND GS_LINE TO GT_TOP_OF_PAGE.
+
+DATA: VRUT LIKE T001Z-PAVAL.
+VRUT  = TAXNR.
+CONCATENATE VRUT+0(2) '.' VRUT+2(3)  '.' VRUT+5(12) INTO TAXNR.
+*84898000-5
+*84.898.000-5
+
+  CAMPO2 = 'Rut '.
+  CLEAR GS_LINE.
+  GS_LINE-TYP = 'S'.
+  CONCATENATE CAMPO2 ': ' TAXNR  INTO GS_LINE-INFO RESPECTING BLANKS.
+  APPEND GS_LINE TO GT_TOP_OF_PAGE.
+
+  CAMPO3 = 'Representante Legal '.
+  CLEAR GS_LINE.
+  GS_LINE-TYP = 'S'.
+  CONCATENATE CAMPO3 ': ' Z_RESP INTO GS_LINE-INFO RESPECTING BLANKS.
+  APPEND GS_LINE TO GT_TOP_OF_PAGE.
+
+  CAMPO4 = 'Rut Representante Legal '.
+  CLEAR GS_LINE.
+  GS_LINE-TYP = 'S'.
+  CONCATENATE CAMPO4 ': ' Z_RRES INTO GS_LINE-INFO RESPECTING BLANKS.
+  APPEND GS_LINE TO GT_TOP_OF_PAGE.
+ENDFORM. "F_FORMATO_PAGE
+
+**********************************************************************
+* FORM    :  F_FORMATEAR_EVENTOS_ALV.
+* Created :  21.06.2010 16:04:22
+**********************************************************************
+FORM F_FORMATEAR_EVENTOS_ALV USING
+                                    P_EVENTS TYPE SLIS_T_EVENT.
+
+  DATA: L_EVENTS TYPE SLIS_ALV_EVENT.
+  CLEAR L_EVENTS.
+  L_EVENTS-NAME = 'TOP_OF_PAGE'.
+  L_EVENTS-FORM = 'TOP_OF_PAGE'.
+  APPEND L_EVENTS TO P_EVENTS.
+ENDFORM. "F_FORMATEAR_EVENTOS_ALV.
+
+**********************************************************************
+* FORM    :  F_GENERAR_LISTA_ALV.
+* Created :  21.06.2010 16:04:38
+**********************************************************************
+FORM F_GENERAR_LISTA_ALV.
+  G_REPID = SY-REPID.
+
+  CALL FUNCTION 'REUSE_ALV_GRID_DISPLAY_LVC'
+    EXPORTING
+      I_CALLBACK_PROGRAM       = G_REPID
+      IS_LAYOUT_LVC            = GS_LAYOUT
+      IT_FIELDCAT_LVC          = G_FIELDCAT
+      I_CALLBACK_PF_STATUS_SET = 'PF_STATUS'
+      I_SAVE                   = 'X'
+      I_CALLBACK_USER_COMMAND  = 'USER_COMMAND'
+      IT_EVENTS                = I_EVENTS[]
+    TABLES
+      T_OUTTAB                 = T_ALVDETALLE
+    EXCEPTIONS
+      PROGRAM_ERROR            = 1
+      OTHERS                   = 2.
+ENDFORM. "F_GENERAR_LISTA_ALV.
+
+
+**********************************************************************
+* FORM    :  TOP_OF_PAGE
+* Created :  27.05.2010 13:45:01
+**********************************************************************
+FORM TOP_OF_PAGE.
+  CALL FUNCTION 'REUSE_ALV_COMMENTARY_WRITE'
+    EXPORTING
+      I_LOGO             = 'ZLOGO_ALUSA'
+      IT_LIST_COMMENTARY = GT_LIST_TOP_OF_PAGE.
+ENDFORM. "TOP_OF_PAGE
+
+**********************************************************************
+* FORM    :  USER_COMMAND
+* Created :  27.05.2010 13:46:32
+**********************************************************************
+FORM USER_COMMAND USING R_UCOMM LIKE SY-UCOMM
+                        RS_SELFIELD TYPE SLIS_SELFIELD.
+
+  DATA LINEA TYPE I.
+
+  CHECK NOT RS_SELFIELD-TABNAME IS INITIAL.
+
+  CASE R_UCOMM.
+
+    WHEN 'FUNCION'.                                         "'&IC1'.
+
+    WHEN 'FC01'.
+      PERFORM CALL_FORM.
+
+  ENDCASE.
+
+ENDFORM. "USER_COMMAND
+
+**********************************************************************
+* FORM    :  CALL_FORM
+* Created :  12.07.2010 14:45:09
+**********************************************************************
+FORM CALL_FORM.
+    SORT T_ALVDETALLE BY ZRACCT ZCLAVE2 ZBUDAT.
+
+  DATA: g_job_output_options TYPE ssfcresop.
+  DATA: g_output_options     TYPE ssfcompop.
+  DATA: g_control_parameters TYPE ssfctrlop.
+
+  IF SEMIDEF = ' '.
+    LF_FORMNAME = 'ZFI_CC_FLIBMAY'.       " Formulario Original
+  ELSE.
+    LF_FORMNAME = 'ZFI_CC_FLIBMAYD'.      " Formulario Solo Detalle (LEGAL)
+  ENDIF.
+
+  CALL FUNCTION 'SSF_FUNCTION_MODULE_NAME'
+    EXPORTING
+      FORMNAME           = LF_FORMNAME
+    IMPORTING
+      FM_NAME            = LF_FM_NAME
+    EXCEPTIONS
+      NO_FORM            = 1
+      NO_FUNCTION_MODULE = 2
+      OTHERS             = 3.
+
+  CLEAR g_job_output_options.
+  CLEAR g_control_parameters.
+
+  DATA:
+        MES_NUMBER LIKE  T247-MNR,
+        MES_CARACT LIKE  T247-LTX.
+
+  MES_NUMBER = PPOPER+1(2).
+
+  CALL FUNCTION 'ISP_GET_MONTH_NAME'
+    EXPORTING
+      LANGUAGE     = sy-langu
+      MONTH_NUMBER = MES_NUMBER
+    IMPORTING
+      LONGTEXT     = MES_CARACT.
+
+  CALL FUNCTION LF_FM_NAME
+    EXPORTING
+      control_parameters = g_control_parameters
+      G_PGJAHR           = PRYEAR  " Año
+      G_VBUTXT           = VBUTXT  " Sociedad
+      G_TAXNR            = TAXNR   " Rut
+      G_Z_RESP           = Z_RESP  " Representante
+      G_Z_RRES           = Z_RRES  " Rut Representante
+      G_PIMPML           = PIMPML  " ML
+      G_PIMPMG           = PIMPMG  " MG
+      G_GIRO             = GIRO    " GIRO
+      G_CITY1            = VCITY1  " CIUDAD
+      G_STREET           = VSTREET " DIRECCION
+      G_TEL_NUMBER       = VTEL_NUMBER " TELEFONO
+      G_PPOPER           = PPOPER  "Perdiodo
+      G_MESCAR           = MES_CARACT
+    IMPORTING
+      job_output_options = g_job_output_options
+    TABLES
+      TI_DETALLE01       = T_ALVDETALLE
+    EXCEPTIONS
+      formatting_error   = 1
+      internal_error     = 2
+      send_error         = 3
+      user_canceled      = 4
+      OTHERS             = 5.
+
+  IF SY-SUBRC <> 0.
+    MESSAGE ID SY-MSGID TYPE SY-MSGTY NUMBER SY-MSGNO
+            WITH SY-MSGV1 SY-MSGV2 SY-MSGV3 SY-MSGV4.
+  ENDIF.
+
+ENDFORM. "CALL_FORM
+
+**********************************************************************
+* FORM    :  PF_STATUS
+* Created :  27.05.2010 13:47:11
+**********************************************************************
+FORM PF_STATUS USING CE_FUNC_EXCLUDE TYPE SLIS_T_EXTAB.
+  DATA FCODE_ATTRIB_TAB LIKE SMP_DYNTXT OCCURS 4 WITH HEADER LINE.
+
+  CLEAR: FCODE_ATTRIB_TAB, FCODE_ATTRIB_TAB[].
+
+  "Boton OMPL
+  FCODE_ATTRIB_TAB-TEXT      = 'Impresión'.
+  FCODE_ATTRIB_TAB-ICON_ID   = '@0X@'.
+  FCODE_ATTRIB_TAB-ICON_TEXT = ''.
+  FCODE_ATTRIB_TAB-QUICKINFO = TEXT-t01.
+  FCODE_ATTRIB_TAB-PATH      = SPACE.
+  APPEND FCODE_ATTRIB_TAB.
+
+  PERFORM DYNAMIC_REPORT_FCODES(RHTEILN0) TABLES FCODE_ATTRIB_TAB
+  USING  CE_FUNC_EXCLUDE ' ' ' '.
+
+  SET PF-STATUS 'ALVLIST' EXCLUDING CE_FUNC_EXCLUDE
+                OF PROGRAM 'RHTEILN0'.
+
+ENDFORM. "PF_STATUS
